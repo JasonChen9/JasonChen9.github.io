@@ -1,38 +1,275 @@
 {% assign visitor_lang = include.lang | default: page.lang | default: site.lang %}
+{% assign visitor_label = include.label | default: 'Visitors' %}
 
-<div class="visitor-map">
-  <!-- prettier-ignore -->
-  <a href="https://info.flagcounter.com/sVD8"><img src="https://s01.flagcounter.com/map/sVD8/size_m/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
-  <p class="visitor-map-note">
-    {% if visitor_lang == 'zh-CN' %}
-      按国家和地区汇总的首页浏览量。统计组件不设置 Cookie。
-    {% else %}
-      Homepage views summarized by country and region. The counter does not set cookies.
-    {% endif %}
-  </p>
-</div>
+{% if visitor_lang == 'zh-CN' %}
+  {% assign visitor_subtitle = '按国家和地区汇总的匿名浏览量' %}
+  {% assign visitor_status = '交互地图' %}
+  {% assign visitor_map_title = '网站访问来源世界地图' %}
+  {% assign visitor_map_description = '将鼠标移到地图上可查看各国家和地区的访问量。中国大陆与台湾使用同一统计和高亮状态。' %}
+  {% assign visitor_note = '不使用 Cookie，也不存储 IP 地址；数据每 6 小时更新。' %}
+  {% assign visitor_loading = '正在加载访问地图…' %}
+  {% assign visitor_unavailable = '访问地图暂时不可用。' %}
+{% else %}
+  {% assign visitor_subtitle = 'Anonymous pageviews by country and region' %}
+  {% assign visitor_status = 'Interactive map' %}
+  {% assign visitor_map_title = 'World map of website visitors' %}
+  {% assign visitor_map_description = 'Hover over the map to see pageviews by country and region. Mainland China and Taiwan share one total and highlight state.' %}
+  {% assign visitor_note = 'No cookies. IP addresses are not stored. Data refreshes every 6 hours.' %}
+  {% assign visitor_loading = 'Loading visitor map…' %}
+  {% assign visitor_unavailable = 'The visitor map is temporarily unavailable.' %}
+{% endif %}
+
+<section class="visitor-map" aria-labelledby="visitor-map-title">
+  <header class="visitor-map-header">
+    <div>
+      <h2 class="visitor-map-title" id="visitor-map-title">{{ visitor_label }}</h2>
+      <p class="visitor-map-subtitle">{{ visitor_subtitle }}</p>
+    </div>
+    <span class="visitor-map-status"><span aria-hidden="true"></span>{{ visitor_status }}</span>
+  </header>
+
+  <div
+    class="visitor-map-frame"
+    data-visitor-map-root
+    data-data-url="{{ '/assets/data/visitor-map.json' | relative_url }}"
+    data-geo-url="https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@9380cca83db5f9aef52d5e762765100745f84b27/geojson/ne_110m_admin_0_countries.geojson"
+    data-language="{{ visitor_lang }}"
+    data-title="{{ visitor_map_title }}"
+    data-description="{{ visitor_map_description }}"
+    data-loading="{{ visitor_loading }}"
+    data-unavailable="{{ visitor_unavailable }}"
+  >
+    <div class="visitor-map-canvas" role="img" aria-label="{{ visitor_map_title }}">
+      <p class="visitor-map-loading" role="status">{{ visitor_loading }}</p>
+      <div class="visitor-map-tooltip" role="tooltip" hidden></div>
+    </div>
+  </div>
+
+  <footer class="visitor-map-footer">
+    <p class="visitor-map-note">{{ visitor_note }}</p>
+    <p class="visitor-map-summary" data-visitor-map-summary aria-live="polite"></p>
+  </footer>
+</section>
 
 <style>
   .visitor-map {
-    margin: 0.5rem 0 1.5rem;
+    --visitor-map-land: #dfe2dc;
+    --visitor-map-border: #fff;
+    --visitor-map-hover: #173fd1;
+    width: 100%;
+    max-width: 780px;
+    margin: 2.5rem 0 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 12px;
+    background: var(--global-card-bg-color, var(--global-bg-color));
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.045);
   }
 
-  .visitor-map img {
+  html[data-theme='dark'] .visitor-map {
+    --visitor-map-land: #3a3f43;
+    --visitor-map-border: #24272a;
+    --visitor-map-hover: #7892ff;
+  }
+
+  .visitor-map-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.15rem 0.9rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .visitor-map-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .visitor-map-subtitle {
+    margin: 0.18rem 0 0;
+    color: var(--global-text-color-light);
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .visitor-map-status {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.38rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--global-theme-color) 10%, transparent);
+    color: var(--global-theme-color);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .visitor-map-status > span {
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .visitor-map-frame {
+    position: relative;
+    min-height: 320px;
+    background: var(--global-bg-color);
+  }
+
+  .visitor-map-canvas {
+    position: relative;
+    min-height: 320px;
+  }
+
+  .visitor-map-canvas svg {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 1.92 / 1;
   }
 
-  .visitor-map > a {
-    display: block;
-    width: 100%;
-    max-width: 600px;
-    aspect-ratio: 600 / 291;
+  .visitor-map-country {
+    cursor: default;
+    fill: var(--visitor-country-fill, var(--visitor-map-land));
+    stroke: var(--visitor-map-border);
+    stroke-width: 0.65;
+    vector-effect: non-scaling-stroke;
+    transition:
+      fill 140ms ease,
+      filter 140ms ease,
+      stroke-width 140ms ease;
   }
 
-  .visitor-map-note {
-    margin-top: 0.45rem;
+  .visitor-map-country.is-hovered {
+    fill: var(--visitor-map-hover) !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.22));
+    stroke-width: 1.15;
+  }
+
+  .visitor-map-loading {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    color: var(--global-text-color-light);
     font-size: 0.82rem;
-    opacity: 0.68;
+    pointer-events: none;
+  }
+
+  .visitor-map-loading[hidden] {
+    display: none;
+  }
+
+  .visitor-map-tooltip {
+    position: absolute;
+    z-index: 2;
+    min-width: 7.5rem;
+    padding: 0.48rem 0.62rem;
+    transform: translate(-50%, calc(-100% - 0.65rem));
+    border: 1px solid color-mix(in srgb, var(--global-divider-color) 75%, transparent);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--global-bg-color) 94%, transparent);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+    color: var(--global-text-color);
+    font-size: 0.76rem;
+    line-height: 1.35;
+    pointer-events: none;
+    backdrop-filter: blur(8px);
+  }
+
+  .visitor-map-tooltip strong,
+  .visitor-map-tooltip span {
+    display: block;
+  }
+
+  .visitor-map-tooltip span {
+    margin-top: 0.08rem;
+    color: var(--global-text-color-light);
+  }
+
+  .visitor-map-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.72rem 1.15rem 0.82rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+
+  .visitor-map-note,
+  .visitor-map-summary {
+    margin: 0;
+    color: var(--global-text-color-light);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .visitor-map-summary {
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .visitor-map-country {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .visitor-map {
+      margin-top: 2rem;
+      border-radius: 10px;
+    }
+
+    .visitor-map-header {
+      align-items: center;
+      padding: 0.85rem 0.9rem 0.8rem;
+    }
+
+    .visitor-map-title {
+      font-size: 1.05rem;
+    }
+
+    .visitor-map-subtitle {
+      font-size: 0.78rem;
+    }
+
+    .visitor-map-status {
+      padding: 0.28rem 0.48rem;
+      font-size: 0.68rem;
+    }
+
+    .visitor-map-frame,
+    .visitor-map-canvas {
+      min-height: 190px;
+    }
+
+    .visitor-map-footer {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.65rem 0.9rem 0.72rem;
+    }
+
+    .visitor-map-summary {
+      text-align: left;
+    }
   }
 </style>
+
+<script
+  defer
+  src="https://cdn.jsdelivr.net/npm/d3@{{ site.third_party_libraries.d3.version }}/dist/d3.min.js"
+  integrity="{{ site.third_party_libraries.d3.integrity.js }}"
+  crossorigin="anonymous"
+></script>
+<script defer src="{{ '/assets/js/visitor-map.js' | relative_url | bust_file_cache }}"></script>

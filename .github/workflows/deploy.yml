@@ -62,6 +62,8 @@ on:
       - "!docs/INSTALL.md"
       - "!README.md"
   workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
 
 permissions:
   contents: write
@@ -88,6 +90,11 @@ jobs:
         with:
           node-version: "20"
           cache: "npm"
+      - name: Refresh visitor map 🌍
+        if: github.event_name != 'pull_request'
+        env:
+          POSTHOG_SHARED_INSIGHT_URL: ${{ secrets.POSTHOG_SHARED_INSIGHT_URL }}
+        run: node scripts/update-visitor-map.mjs
       - name: Install JS deps 📦
         run: npm ci
       - name: Update _config.yml ⚙️

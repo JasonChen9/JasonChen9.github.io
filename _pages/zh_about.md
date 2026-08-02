@@ -13,7 +13,7 @@ selected_papers: true
 selected_publications_label: 代表性论文
 publications_url: /zh/publications/
 visitor_map: true
-visitor_map_label: 首页访问地图
+visitor_map_label: 访问统计
 social: true
 contact_note: 欢迎通过电子邮件与我联系。
 

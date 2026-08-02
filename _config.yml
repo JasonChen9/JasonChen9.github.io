@@ -116,13 +116,13 @@ analytics:
   cloudflare: # your Cloudflare Web Analytics beacon token (32 hex characters)
 enable_simple_analytics: false # Simple Analytics identifies a site by its domain, so it has no ID to set above
 
-# Privacy-focused pageview analytics and public visitor map.
+# Privacy-focused pageview analytics. The aggregated visitor map is refreshed
+# during deployment; its private share URL is stored in GitHub Actions secrets.
 # The project token is intentionally public and is safe to embed in client-side code.
 posthog:
   project_token: "phc_wxrb5MgQoFSTBkqYinHUDRCxedb5f3cuiqVkBPtTHzLs"
   api_host: "https://eu.i.posthog.com"
   ui_host: "https://eu.posthog.com"
-  public_insight_url:
 
 # For Google Search Console, see https://support.google.com/webmasters/answer/9008080?hl=en#meta_tag_verification&zippy=%2Chtml-tag
 google_site_verification: # your google-site-verification ID (Google Search Console)
@@ -418,8 +418,7 @@ external_links:
   enabled: true
   rel: external nofollow noopener
   target: _blank
-  exclude:
-    - 'https://info\.flagcounter\.com/sVD8'
+  exclude: []
 
 # -----------------------------------------------------------------------------
 # Responsive WebP Images

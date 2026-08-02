@@ -69,8 +69,7 @@ layout: default
 
     <!-- Visitor map -->
     {% if page.visitor_map %}
-      <h2>{{ page.visitor_map_label | default: 'visitor map' }}</h2>
-      {% include visitor-map.liquid lang=page.lang %}
+      {% include visitor-map.liquid lang=page.lang label=page.visitor_map_label %}
     {% endif %}
 
     <!-- Social -->

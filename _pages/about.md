@@ -13,7 +13,7 @@ selected_papers: true
 selected_publications_label: selected publications
 publications_url: /publications/
 visitor_map: true
-visitor_map_label: homepage visitor map
+visitor_map_label: Visitors
 social: true
 contact_note: Email is the best way to reach me.
 
