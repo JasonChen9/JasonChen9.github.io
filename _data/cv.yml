@@ -84,17 +84,18 @@ cv:
           high-performance computing clusters.
 
     Publications:
-      - title: "Compass: Dissecting Communication and Computation Operators for Efficient LLM Training"
+      - title: "Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration"
         authors:
+          - Xueze Kang
           - Guangyu Xiang
-          - Lin Zhang
-          - Haoxuan Yu
-          - Xinglin Pan
+          - Suyi Li
+          - Yuxin Wang
           - Shaohuai Shi
+          - Lin Zhang
           - Xiaowen Chu
-        publisher: IEEE INFOCOM 2026
-        releaseDate: 2026-05-17
-        url: https://doi.org/10.1109/INFOCOM59046.2026.11571341
+        publisher: arXiv
+        releaseDate: 2026-07-13
+        url: https://arxiv.org/abs/2607.11136
 
       - title: "KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding"
         authors:
@@ -108,6 +109,18 @@ cv:
         publisher: arXiv
         releaseDate: 2026-06-27
         url: https://arxiv.org/abs/2606.29207
+
+      - title: "Compass: Dissecting Communication and Computation Operators for Efficient LLM Training"
+        authors:
+          - Guangyu Xiang
+          - Lin Zhang
+          - Haoxuan Yu
+          - Xinglin Pan
+          - Shaohuai Shi
+          - Xiaowen Chu
+        publisher: IEEE INFOCOM 2026
+        releaseDate: 2026-05-17
+        url: https://doi.org/10.1109/INFOCOM59046.2026.11571341
 
       - title: "ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training"
         authors:

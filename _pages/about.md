@@ -17,7 +17,7 @@ latest_posts:
 <div class="row align-items-start">
   <div class="col-md-8" markdown="1">
 
-I am a Ph.D. student in **Data Science and Analytics** at The Hong Kong University of Science and Technology (Guangzhou), advised by [Prof. Xiaowen Chu](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/CHU-Xiaowen/xwchu). My research focuses on machine learning systems, particularly efficient and elastic systems for large language model training and inference. My broader interests include GPU computing, distributed systems, and communication–computation co-optimization.
+I am a second-year Ph.D. student in **Data Science and Analytics** at The Hong Kong University of Science and Technology (Guangzhou), advised by [Prof. Xiaowen Chu](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/CHU-Xiaowen/xwchu). My research focuses on machine learning systems, particularly efficient and elastic systems for large language model training and inference. My broader interests include GPU computing, distributed systems, and communication–computation co-optimization.
 
 Before joining HKUST(GZ), I received my master's degree in Software Engineering from Peking University and my bachelor's degree in Software Engineering from the University of Electronic Science and Technology of China.
 
