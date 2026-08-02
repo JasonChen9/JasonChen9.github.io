@@ -334,10 +334,6 @@ button:focus-visible {
   border-color: #b4cbe2;
 }
 
-.button-quiet {
-  color: var(--blue-700);
-}
-
 .quick-facts {
   max-width: 760px;
   margin: 42px 0 0;
@@ -926,14 +922,6 @@ button:focus-visible {
 
 .button-light:hover {
   color: var(--blue-700);
-}
-
-.text-link-light {
-  color: #a8d9f8;
-}
-
-.text-link-light:hover {
-  color: #fff;
 }
 
 .not-found {
