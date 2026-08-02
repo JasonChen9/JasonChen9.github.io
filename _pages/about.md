@@ -36,7 +36,9 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
     {% include figure.liquid loading="eager" path="assets/img/guangyu-xiang.jpg" class="img-fluid rounded z-depth-1" alt="Portrait of Guangyu Xiang" %}
     <div class="mt-2 font-monospace">
       <p class="mb-0" lang="zh-CN">向广宇</p>
-      <p class="mb-0">Guangzhou, China</p>
+      <p class="mb-0 small" style="overflow-wrap: anywhere">
+        <a href="mailto:gxiang190@connect.hkust-gz.edu.cn">gxiang190@connect.hkust-gz.edu.cn</a>
+      </p>
     </div>
   </div>
 </div>

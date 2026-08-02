@@ -36,7 +36,9 @@ latest_posts:
     {% include figure.liquid loading="eager" path="assets/img/guangyu-xiang.jpg" class="img-fluid rounded z-depth-1" alt="向广宇的个人照片" %}
     <div class="mt-2 font-monospace">
       <p class="mb-0">向广宇</p>
-      <p class="mb-0">中国 · 广州</p>
+      <p class="mb-0 small" style="overflow-wrap: anywhere">
+        <a href="mailto:gxiang190@connect.hkust-gz.edu.cn">gxiang190@connect.hkust-gz.edu.cn</a>
+      </p>
     </div>
   </div>
 </div>
