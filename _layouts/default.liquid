@@ -14,6 +14,7 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
+    {% include posthog.liquid %}
     {% if page.translation_url %}
       {% if current_lang == 'zh-CN' %}
         {% assign english_url = page.translation_url %}
