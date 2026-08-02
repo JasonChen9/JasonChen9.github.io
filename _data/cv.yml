@@ -93,7 +93,7 @@ cv:
           - Shaohuai Shi
           - Xiaowen Chu
         publisher: IEEE INFOCOM 2026
-        releaseDate: 2026-05-18
+        releaseDate: 2026-05-17
         url: https://doi.org/10.1109/INFOCOM59046.2026.11571341
 
       - title: "KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding"
@@ -106,7 +106,7 @@ cv:
           - Yuxin Wang
           - Xiaowen Chu
         publisher: arXiv
-        releaseDate: 2026-06-28
+        releaseDate: 2026-06-27
         url: https://arxiv.org/abs/2606.29207
 
       - title: "ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training"
@@ -117,5 +117,5 @@ cv:
           - Hao Zhang
           - et al.
         publisher: arXiv
-        releaseDate: 2025-10-01
+        releaseDate: 2025-09-30
         url: https://arxiv.org/abs/2510.00606
