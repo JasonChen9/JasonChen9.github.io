@@ -1,0 +1,121 @@
+cv:
+  name: Guangyu Xiang
+  label: Ph.D. Student in Data Science and Analytics
+  email: gxiang190@connect.hkust-gz.edu.cn
+  location: Guangzhou, China
+  image: ""
+  summary: >
+    Ph.D. student at HKUST(GZ) working on machine learning systems,
+    efficient and elastic LLM training and inference, GPU computing,
+    distributed systems, and communication-computation co-optimization.
+
+  social_networks: []
+
+  sections:
+    Education:
+      - institution: The Hong Kong University of Science and Technology (Guangzhou)
+        location: Guangzhou, China
+        url: https://www.hkust-gz.edu.cn/
+        area: Data Science and Analytics, Information Hub
+        studyType: Ph.D.
+        start_date: 2025-02
+        end_date: present
+        highlights:
+          - "Advisor: Prof. Xiaowen Chu"
+          - Machine Learning Systems; Distributed LLM Training and Serving; GPU Computing
+
+      - institution: Peking University
+        location: Beijing, China
+        url: https://english.pku.edu.cn/
+        area: Software Engineering
+        studyType: Master's Degree
+        start_date: 2021-09
+        end_date: 2024-06
+        highlights:
+          - School of Software and Microelectronics
+          - High-Performance Computing, AI Compiler Optimization, and CUDA Programming
+
+      - institution: University of Electronic Science and Technology of China
+        location: Chengdu, China
+        url: https://en.uestc.edu.cn/
+        area: Software Engineering
+        studyType: Bachelor's Degree
+        start_date: 2017-09
+        end_date: 2021-06
+        highlights:
+          - School of Information and Software Engineering
+          - GPA 3.86/4.00; ranked in the top 5%
+
+    Experience:
+      - company: Microsoft Research Asia
+        position: Research Intern, Systems Research Group
+        location: Beijing, China
+        start_date: 2023-02
+        end_date: 2023-12
+        summary: >
+          Studied Multi-Head Attention and FlashAttention optimization,
+          developed CUDA kernels, and explored compiler cost models.
+
+      - company: OneFlow
+        position: R&D Engineer Intern, AI Framework Team
+        location: Beijing, China
+        start_date: 2022-09
+        end_date: 2023-02
+        summary: >
+          Reworked MLIR operator fusion and rewrite patterns with PDLL,
+          and supported model compatibility across frameworks and accelerators.
+
+      - company: AMD
+        position: AI Compiler Engineer Intern
+        location: Beijing, China
+        start_date: 2022-03
+        end_date: 2022-09
+        summary: >
+          Built TVM Relay passes for ASR model compilation, including
+          quantization-flow optimization and AIE deployment evaluation.
+
+      - company: Peng Cheng Laboratory
+        position: AI Development Engineer Intern
+        location: Shenzhen, China
+        start_date: 2020-11
+        end_date: 2021-08
+        summary: >
+          Contributed to resource management and job scheduling for
+          high-performance computing clusters.
+
+    Publications:
+      - title: "Compass: Dissecting Communication and Computation Operators for Efficient LLM Training"
+        authors:
+          - Guangyu Xiang
+          - Lin Zhang
+          - Haoxuan Yu
+          - Xinglin Pan
+          - Shaohuai Shi
+          - Xiaowen Chu
+        publisher: IEEE INFOCOM 2026
+        releaseDate: 2026-05-18
+        url: https://doi.org/10.1109/INFOCOM59046.2026.11571341
+
+      - title: "KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding"
+        authors:
+          - Guangyu Xiang
+          - Xueze Kang
+          - Lin Zhang
+          - Wenxiang Lin
+          - Shaohuai Shi
+          - Yuxin Wang
+          - Xiaowen Chu
+        publisher: arXiv
+        releaseDate: 2026-06-28
+        url: https://arxiv.org/abs/2606.29207
+
+      - title: "ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training"
+        authors:
+          - Xueze Kang
+          - Guangyu Xiang
+          - Yuxin Wang
+          - Hao Zhang
+          - et al.
+        publisher: arXiv
+        releaseDate: 2025-10-01
+        url: https://arxiv.org/abs/2510.00606

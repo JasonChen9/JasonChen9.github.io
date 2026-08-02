@@ -1,16 +1,16 @@
 ---
-layout: archive
-title: "Publications"
+layout: page
 permalink: /publications/
-author_profile: true
+title: publications
+description: Publications by Guangyu Xiang in machine learning systems.
+nav: true
+nav_order: 1
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+{% include bib_search.liquid %}
 
-{% include base_path %}
+<div class="publications">
 
-{% for post in site.publications reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+{% bibliography %}
+
+</div>
