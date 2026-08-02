@@ -8,20 +8,24 @@ if (!sourceUrl) {
   throw new Error("POSTHOG_SHARED_INSIGHT_URL is not configured");
 }
 
-const response = await fetch(sourceUrl);
+const refreshUrl = new URL(sourceUrl);
+refreshUrl.pathname = refreshUrl.pathname.replace(/\/$/, "");
+
+if (!refreshUrl.pathname.endsWith(".json")) {
+  refreshUrl.pathname = `${refreshUrl.pathname}.json`;
+}
+
+refreshUrl.searchParams.set("refresh", "force_blocking");
+
+const response = await fetch(refreshUrl, {
+  headers: { Accept: "application/json" },
+});
 
 if (!response.ok) {
   throw new Error(`PostHog returned HTTP ${response.status}`);
 }
 
-const html = await response.text();
-const exportedData = html.match(/<script[^>]+id=["']posthog-exported-data["'][^>]*>([\s\S]*?)<\/script>/i);
-
-if (!exportedData) {
-  throw new Error("PostHog exported data was not found");
-}
-
-let payload = JSON.parse(exportedData[1]);
+let payload = await response.json();
 
 while (typeof payload === "string") {
   payload = JSON.parse(payload);
@@ -29,6 +33,16 @@ while (typeof payload === "string") {
 
 const insight = payload.insight || payload.data?.insight;
 const rows = insight?.result;
+
+if (insight?.query_status?.error) {
+  throw new Error(`PostHog query failed: ${insight.query_status.error}`);
+}
+
+const lastRefresh = Date.parse(insight?.last_refresh || "");
+
+if (!Number.isFinite(lastRefresh) || Date.now() - lastRefresh > 60 * 60 * 1000) {
+  throw new Error("PostHog did not return freshly computed visitor data");
+}
 
 if (!Array.isArray(rows)) {
   throw new Error("PostHog country breakdown was not found");
@@ -81,7 +95,7 @@ const hasSameCounts =
   previousData?.total_pageviews === nextData.total_pageviews && JSON.stringify(previousData?.countries || {}) === JSON.stringify(nextData.countries);
 
 if (hasSameCounts) {
-  process.stdout.write("Visitor map data is already current.\n");
+  process.stdout.write("Visitor map counts are unchanged; the PostHog query was refreshed.\n");
 } else {
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
   await fs.writeFile(outputPath, `${JSON.stringify(nextData, null, 2)}\n`);

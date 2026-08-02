@@ -31,7 +31,10 @@
         throw new Error("D3 did not load");
       }
 
-      const [visitorResponse, geoResponse] = await Promise.all([fetch(root.dataset.dataUrl), fetch(root.dataset.geoUrl)]);
+      const visitorDataUrl = new URL(root.dataset.dataUrl, window.location.href);
+      visitorDataUrl.searchParams.set("v", Date.now().toString());
+
+      const [visitorResponse, geoResponse] = await Promise.all([fetch(visitorDataUrl, { cache: "no-store" }), fetch(root.dataset.geoUrl)]);
 
       if (!visitorResponse.ok || !geoResponse.ok) {
         throw new Error("Map data did not load");
