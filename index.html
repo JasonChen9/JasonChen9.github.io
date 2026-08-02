@@ -196,30 +196,220 @@
   <span class="na">author</span> <span class="p">=</span> <span class="s">{Kang, Xueze and Xiang, Guangyu and Wang, Yuxin and Zhang, Hao and Fang, Yuchu and Zhou, Yuhang and Tang, Zhenheng and Lv, Youhui and Maman, Eliran and Wasserman, Mark and Zameret, Alon and Bian, Zhipeng and Chen, Shushu and Yu, Zhiyou and Wang, Jin and Wu, Xiaoyu and Zheng, Yang and Tian, Chen and Chu, Xiaowen}</span><span class="p">,</span>
   <span class="na">journal</span> <span class="p">=</span> <span class="s">{arXiv preprint arXiv:2510.00606}</span><span class="p">,</span>
   <span class="na">year</span> <span class="p">=</span> <span class="s">{2025}</span><span class="p">,</span>
-<span class="p">}</span></code></pre></figure> </div> </div> </div> </li> </ol> </div> <h2>homepage visitor map</h2> <div class="visitor-map"> <a href="https://info.flagcounter.com/sVD8"><img src="https://s01.flagcounter.com/map/sVD8/size_m/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a> <p class="visitor-map-note"> Homepage views summarized by country and region. The counter does not set cookies. </p> </div> <style>
+<span class="p">}</span></code></pre></figure> </div> </div> </div> </li> </ol> </div> <section class="visitor-map" aria-labelledby="visitor-map-title"> <header class="visitor-map-header"> <div> <h2 class="visitor-map-title" id="visitor-map-title">Visitors</h2> <p class="visitor-map-subtitle">Anonymous pageviews by country and region</p> </div> <span class="visitor-map-status"><span aria-hidden="true"></span>Interactive map</span> </header> <div class="visitor-map-frame" data-visitor-map-root data-data-url="/assets/data/visitor-map.json" data-geo-url="https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@9380cca83db5f9aef52d5e762765100745f84b27/geojson/ne_110m_admin_0_countries.geojson" data-language="en" data-title="World map of website visitors" data-description="Hover over the map to see pageviews by country and region. Mainland China and Taiwan share one total and highlight state." data-loading="Loading visitor map…" data-unavailable="The visitor map is temporarily unavailable."> <div class="visitor-map-canvas" role="img" aria-label="World map of website visitors"> <p class="visitor-map-loading" role="status">Loading visitor map…</p> <div class="visitor-map-tooltip" role="tooltip" hidden></div> </div> </div> <footer class="visitor-map-footer"> <p class="visitor-map-note">No cookies. IP addresses are not stored. Data refreshes every 6 hours.</p> <p class="visitor-map-summary" data-visitor-map-summary aria-live="polite"></p> </footer> </section> <style>
   .visitor-map {
-    margin: 0.5rem 0 1.5rem;
+    --visitor-map-land: #dfe2dc;
+    --visitor-map-border: #fff;
+    --visitor-map-hover: #173fd1;
+    width: 100%;
+    max-width: 780px;
+    margin: 2.5rem 0 1.5rem;
+    overflow: hidden;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 12px;
+    background: var(--global-card-bg-color, var(--global-bg-color));
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.045);
   }
 
-  .visitor-map img {
+  html[data-theme='dark'] .visitor-map {
+    --visitor-map-land: #3a3f43;
+    --visitor-map-border: #24272a;
+    --visitor-map-hover: #7892ff;
+  }
+
+  .visitor-map-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.15rem 0.9rem;
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  .visitor-map-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  .visitor-map-subtitle {
+    margin: 0.18rem 0 0;
+    color: var(--global-text-color-light);
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .visitor-map-status {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 0.38rem;
+    padding: 0.3rem 0.55rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--global-theme-color) 10%, transparent);
+    color: var(--global-theme-color);
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .visitor-map-status > span {
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .visitor-map-frame {
+    position: relative;
+    min-height: 320px;
+    background: var(--global-bg-color);
+  }
+
+  .visitor-map-canvas {
+    position: relative;
+    min-height: 320px;
+  }
+
+  .visitor-map-canvas svg {
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 1.92 / 1;
   }
 
-  .visitor-map > a {
-    display: block;
-    width: 100%;
-    max-width: 600px;
-    aspect-ratio: 600 / 291;
+  .visitor-map-country {
+    cursor: default;
+    fill: var(--visitor-country-fill, var(--visitor-map-land));
+    stroke: var(--visitor-map-border);
+    stroke-width: 0.65;
+    vector-effect: non-scaling-stroke;
+    transition:
+      fill 140ms ease,
+      filter 140ms ease,
+      stroke-width 140ms ease;
   }
 
-  .visitor-map-note {
-    margin-top: 0.45rem;
+  .visitor-map-country.is-hovered {
+    fill: var(--visitor-map-hover) !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.22));
+    stroke-width: 1.15;
+  }
+
+  .visitor-map-loading {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    color: var(--global-text-color-light);
     font-size: 0.82rem;
-    opacity: 0.68;
+    pointer-events: none;
   }
-</style> <div class="social"> <div class="contact-icons"> <a href="mailto:gxiang190@connect.hkust-gz.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a> <a href="https://scholar.google.com/citations?user=yDCJoXYAAAAJ" title="Scholar userid" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a> </div> <div class="contact-note">Email is the best way to reach me.</div> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Guangyu Xiang. Built with al-folio. </div> </footer> <script>
+
+  .visitor-map-loading[hidden] {
+    display: none;
+  }
+
+  .visitor-map-tooltip {
+    position: absolute;
+    z-index: 2;
+    min-width: 7.5rem;
+    padding: 0.48rem 0.62rem;
+    transform: translate(-50%, calc(-100% - 0.65rem));
+    border: 1px solid color-mix(in srgb, var(--global-divider-color) 75%, transparent);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--global-bg-color) 94%, transparent);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+    color: var(--global-text-color);
+    font-size: 0.76rem;
+    line-height: 1.35;
+    pointer-events: none;
+    backdrop-filter: blur(8px);
+  }
+
+  .visitor-map-tooltip strong,
+  .visitor-map-tooltip span {
+    display: block;
+  }
+
+  .visitor-map-tooltip span {
+    margin-top: 0.08rem;
+    color: var(--global-text-color-light);
+  }
+
+  .visitor-map-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.72rem 1.15rem 0.82rem;
+    border-top: 1px solid var(--global-divider-color);
+  }
+
+  .visitor-map-note,
+  .visitor-map-summary {
+    margin: 0;
+    color: var(--global-text-color-light);
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .visitor-map-summary {
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    font-weight: 500;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .visitor-map-country {
+      transition: none;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    .visitor-map {
+      margin-top: 2rem;
+      border-radius: 10px;
+    }
+
+    .visitor-map-header {
+      align-items: center;
+      padding: 0.85rem 0.9rem 0.8rem;
+    }
+
+    .visitor-map-title {
+      font-size: 1.05rem;
+    }
+
+    .visitor-map-subtitle {
+      font-size: 0.78rem;
+    }
+
+    .visitor-map-status {
+      padding: 0.28rem 0.48rem;
+      font-size: 0.68rem;
+    }
+
+    .visitor-map-frame,
+    .visitor-map-canvas {
+      min-height: 190px;
+    }
+
+    .visitor-map-footer {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.65rem 0.9rem 0.72rem;
+    }
+
+    .visitor-map-summary {
+      text-align: left;
+    }
+  }
+</style> <script defer src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js" integrity="sha256-1rA678n2xEx7x4cTZ5x4wpUCj6kUMZEZ5cxLSVSFWxw=" crossorigin="anonymous"></script> <script defer src="/assets/js/visitor-map.js?v=f04759a79f401aa1d33211a9473a168b"></script> <div class="social"> <div class="contact-icons"> <a href="mailto:gxiang190@connect.hkust-gz.edu.cn" title="Email"><i class="fa-solid fa-envelope"></i></a> <a href="https://scholar.google.com/citations?user=yDCJoXYAAAAJ" title="Scholar userid" rel="external nofollow noopener" target="_blank"><i class="ai ai-google-scholar"></i></a> </div> <div class="contact-note">Email is the best way to reach me.</div> </div> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Guangyu Xiang. Built with al-folio. </div> </footer> <script>
   window.alFolio = {
     compatBootstrap: false
   };
