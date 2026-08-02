@@ -1,0 +1,285 @@
+{% assign experience_lang = include.lang | default: page.lang | default: site.lang %}
+{% assign experience_is_zh = false %}
+{% if experience_lang == 'zh-CN' %}
+  {% assign experience_is_zh = true %}
+{% endif %}
+
+{% comment %}
+  Logo sources: Microsoft website header, OneFlow website header, AMD website header,
+  and Peng Cheng Laboratory website header. The local copies are displayed without
+  recoloring or cropping.
+{% endcomment %}
+
+<div class="experience-list" role="list">
+  <div class="experience-entry" role="listitem">
+    <div class="experience-logo-wrap experience-logo-wrap-msra" aria-hidden="true">
+      <img
+        class="experience-logo"
+        src="{{ '/assets/img/experience/msra.png' | relative_url }}"
+        alt=""
+        width="216"
+        height="46"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+    <div class="experience-meta">
+      <div class="experience-period"><time datetime="2023">2023</time></div>
+      <div class="experience-location">
+        {% if experience_is_zh %}中国北京{% else %}Beijing, China{% endif %}
+      </div>
+    </div>
+    <div class="experience-details">
+      <div class="experience-role">
+        {% if experience_is_zh %}系统研究组科研实习生{% else %}Research Intern, Systems Research Group{% endif %}
+      </div>
+      <div class="experience-company">
+        {% if experience_is_zh %}微软亚洲研究院{% else %}Microsoft Research Asia{% endif %}
+        <span class="experience-abbr">MSRA</span>
+      </div>
+      <div class="experience-summary">
+        {% if experience_is_zh %}
+          研究多头注意力与 FlashAttention 优化，开发 CUDA 内核，并探索编译器代价模型。
+        {% else %}
+          Studied Multi-Head Attention and FlashAttention optimization, developed CUDA kernels, and explored compiler cost models.
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-entry" role="listitem">
+    <div class="experience-logo-wrap experience-logo-wrap-oneflow" aria-hidden="true">
+      <img
+        class="experience-logo"
+        src="{{ '/assets/img/experience/oneflow.png' | relative_url }}"
+        alt=""
+        width="328"
+        height="64"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+    <div class="experience-meta">
+      <div class="experience-period"><time datetime="2022">2022</time>–<time datetime="2023">2023</time></div>
+      <div class="experience-location">
+        {% if experience_is_zh %}中国北京{% else %}Beijing, China{% endif %}
+      </div>
+    </div>
+    <div class="experience-details">
+      <div class="experience-role">
+        {% if experience_is_zh %}AI 框架团队研发工程师实习生{% else %}R&amp;D Engineer Intern, AI Framework Team{% endif %}
+      </div>
+      <div class="experience-company">OneFlow</div>
+      <div class="experience-summary">
+        {% if experience_is_zh %}
+          使用 PDLL 重构 MLIR 算子融合与重写模式，并支持跨框架、跨加速器的模型兼容。
+        {% else %}
+          Reworked MLIR operator fusion and rewrite patterns with PDLL, and supported model compatibility across frameworks and accelerators.
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-entry" role="listitem">
+    <div class="experience-logo-wrap experience-logo-wrap-amd" aria-hidden="true">
+      <img
+        class="experience-logo"
+        src="{{ '/assets/img/experience/amd.svg' | relative_url }}"
+        alt=""
+        width="140"
+        height="34"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+    <div class="experience-meta">
+      <div class="experience-period"><time datetime="2022">2022</time></div>
+      <div class="experience-location">
+        {% if experience_is_zh %}中国北京{% else %}Beijing, China{% endif %}
+      </div>
+    </div>
+    <div class="experience-details">
+      <div class="experience-role">
+        {% if experience_is_zh %}AI 编译器工程师实习生{% else %}AI Compiler Engineer Intern{% endif %}
+      </div>
+      <div class="experience-company">AMD</div>
+      <div class="experience-summary">
+        {% if experience_is_zh %}
+          面向 ASR 模型编译开发 TVM Relay Pass，包括量化流程优化与 AIE 部署评估。
+        {% else %}
+          Built TVM Relay passes for ASR model compilation, including quantization-flow optimization and AIE deployment evaluation.
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-entry" role="listitem">
+    <div class="experience-logo-wrap experience-logo-wrap-pcl" aria-hidden="true">
+      <img
+        class="experience-logo"
+        src="{{ '/assets/img/experience/pcl.png' | relative_url }}"
+        alt=""
+        width="619"
+        height="78"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
+    <div class="experience-meta">
+      <div class="experience-period"><time datetime="2020">2020</time>–<time datetime="2021">2021</time></div>
+      <div class="experience-location">
+        {% if experience_is_zh %}中国深圳{% else %}Shenzhen, China{% endif %}
+      </div>
+    </div>
+    <div class="experience-details">
+      <div class="experience-role">
+        {% if experience_is_zh %}AI 开发工程师实习生{% else %}AI Development Engineer Intern{% endif %}
+      </div>
+      <div class="experience-company">
+        {% if experience_is_zh %}鹏城实验室{% else %}Peng Cheng Laboratory{% endif %}
+        <span class="experience-abbr">PCL</span>
+      </div>
+      <div class="experience-summary">
+        {% if experience_is_zh %}
+          参与高性能计算集群的资源管理与作业调度。
+        {% else %}
+          Contributed to resource management and job scheduling for high-performance computing clusters.
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .experience-entry {
+    display: grid;
+    grid-template-columns: 144px minmax(120px, 150px) minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+    padding: 0.85rem 0;
+    background: transparent !important;
+  }
+
+  .experience-entry:hover,
+  .experience-entry:focus-within {
+    background: transparent !important;
+  }
+
+  .experience-logo-wrap {
+    display: flex;
+    width: 132px;
+    height: 52px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba(128, 128, 128, 0.24);
+    border-radius: 0.5rem;
+  }
+
+  .experience-logo-wrap-msra {
+    background: #fff;
+  }
+
+  .experience-logo-wrap-oneflow {
+    background: #17214f;
+  }
+
+  .experience-logo-wrap-amd {
+    background: #111;
+  }
+
+  .experience-logo-wrap-pcl {
+    background: #164b7e;
+  }
+
+  .experience-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .experience-meta,
+  .experience-details {
+    min-width: 0;
+  }
+
+  .experience-period {
+    padding-top: 0.12rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .experience-location {
+    margin-top: 0.16rem;
+    font-size: 0.86rem;
+    line-height: 1.35;
+    opacity: 0.68;
+  }
+
+  .experience-role {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .experience-company {
+    margin-top: 0.08rem;
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 0.84;
+  }
+
+  .experience-abbr {
+    margin-left: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    opacity: 0.72;
+    white-space: nowrap;
+  }
+
+  .experience-summary {
+    margin-top: 0.28rem;
+    font-style: italic;
+    line-height: 1.45;
+    opacity: 0.78;
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 640px) {
+    .experience-entry {
+      grid-template-columns: 124px minmax(0, 1fr);
+      gap: 0.35rem 0.75rem;
+      padding: 0.9rem 0;
+    }
+
+    .experience-logo-wrap {
+      grid-column: 1;
+      width: 116px;
+      height: 46px;
+      padding: 0.48rem 0.62rem;
+    }
+
+    .experience-meta {
+      grid-column: 2;
+      align-self: center;
+    }
+
+    .experience-period {
+      padding-top: 0;
+      font-size: 0.92rem;
+    }
+
+    .experience-location {
+      font-size: 0.82rem;
+    }
+
+    .experience-details {
+      grid-column: 1 / -1;
+      margin-top: 0.2rem;
+    }
+  }
+</style>

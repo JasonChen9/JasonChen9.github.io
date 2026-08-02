@@ -47,6 +47,10 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
 
 {% include education.liquid lang="en" %}
 
+## Experience
+
+{% include experience.liquid lang="en" %}
+
 ## Research interests
 
 - Machine Learning Systems

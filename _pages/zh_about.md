@@ -47,6 +47,10 @@ latest_posts:
 
 {% include education.liquid lang="zh-CN" %}
 
+## 实习经历
+
+{% include experience.liquid lang="zh-CN" %}
+
 ## 研究方向
 
 - 机器学习系统
