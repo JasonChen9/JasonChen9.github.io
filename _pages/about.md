@@ -51,11 +51,11 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
 
 ## Research Interests
 
-- Machine Learning Systems
+- [Diffusion Models and Diffusion Transformers (DiTs)](https://jasonchen9.github.io/dit-paper-landscape/)
+- Communication–Computation Co-optimization
 - Efficient and Elastic LLM Training and Inference
 - GPU Computing and AI Compilers
 - Distributed Systems
-- Communication–Computation Co-optimization
 
 <h2>
   <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>

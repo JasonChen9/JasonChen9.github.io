@@ -51,11 +51,11 @@ latest_posts:
 
 ## 研究方向
 
-- 机器学习系统
+- [扩散模型与扩散 Transformer（DiT）](https://jasonchen9.github.io/dit-paper-landscape/)
+- 通信与计算协同优化
 - 高效、弹性的大语言模型训练与推理
 - GPU 计算与 AI 编译器
 - 分布式系统
-- 通信与计算协同优化
 
 <h2>
   <a href="{{ '/zh/news/' | relative_url }}" style="color: inherit">动态</a>
