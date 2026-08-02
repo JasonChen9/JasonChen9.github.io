@@ -12,6 +12,8 @@ description: 向广宇是香港科技大学（广州）数据科学与分析博�
 selected_papers: true
 selected_publications_label: 代表性论文
 publications_url: /zh/publications/
+experience: true
+experience_label: 实习经历
 visitor_map: true
 visitor_map_label: 访问统计
 social: true
@@ -46,10 +48,6 @@ latest_posts:
 ## 教育经历
 
 {% include education.liquid lang="zh-CN" %}
-
-## 实习经历
-
-{% include experience.liquid lang="zh-CN" %}
 
 ## 研究方向
 

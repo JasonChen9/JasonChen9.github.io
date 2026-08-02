@@ -10,8 +10,10 @@ translation_url: /zh/
 description: Guangyu Xiang is a Ph.D. student working on machine learning systems, efficient LLM training and inference, and GPU computing.
 
 selected_papers: true
-selected_publications_label: selected publications
+selected_publications_label: Selected Publications
 publications_url: /publications/
+experience: true
+experience_label: Experience
 visitor_map: true
 visitor_map_label: Visitors
 social: true
@@ -47,11 +49,7 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
 
 {% include education.liquid lang="en" %}
 
-## Experience
-
-{% include experience.liquid lang="en" %}
-
-## Research interests
+## Research Interests
 
 - Machine Learning Systems
 - Efficient and Elastic LLM Training and Inference
@@ -60,7 +58,7 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
 - Communication–Computation Co-optimization
 
 <h2>
-  <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+  <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
 </h2>
 
 {% include news-list.liquid lang="en" limit=3 %}

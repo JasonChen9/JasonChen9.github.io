@@ -67,6 +67,12 @@ layout: default
       {% include selected_papers.liquid %}
     {% endif %}
 
+    <!-- Experience -->
+    {% if page.experience %}
+      <h2 id="experience">{{ page.experience_label | default: 'Experience' }}</h2>
+      {% include experience.liquid lang=page.lang %}
+    {% endif %}
+
     <!-- Visitor map -->
     {% if page.visitor_map %}
       {% include visitor-map.liquid lang=page.lang label=page.visitor_map_label %}
