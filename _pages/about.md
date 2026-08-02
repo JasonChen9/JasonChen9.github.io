@@ -31,6 +31,36 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
   </div>
 </div>
 
+## Education
+
+<div class="table-responsive">
+  <table class="table table-sm table-borderless">
+    <tbody>
+      <tr>
+        <th scope="row" style="width: 20%">2025–Present</th>
+        <td>
+          <strong>The Hong Kong University of Science and Technology (Guangzhou)</strong><br>
+          Ph.D. in Data Science and Analytics
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2021–2024</th>
+        <td>
+          <strong>Peking University</strong><br>
+          Master's Degree in Software Engineering
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2017–2021</th>
+        <td>
+          <strong>University of Electronic Science and Technology of China</strong><br>
+          Bachelor's Degree in Software Engineering
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 ## Research interests
 
 - Machine Learning Systems
