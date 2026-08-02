@@ -1,0 +1,169 @@
+{% assign education_lang = include.lang | default: page.lang | default: site.lang %}
+{% assign education_is_zh = false %}
+{% if education_lang == 'zh-CN' %}
+  {% assign education_is_zh = true %}
+{% endif %}
+
+<div class="education-list" role="list">
+  <div class="education-entry" role="listitem">
+    <div class="education-logo-wrap">
+      <img
+        class="education-logo"
+        src="{{ '/assets/img/education/hkust-gz.png' | relative_url }}"
+        alt="{% if education_is_zh %}香港科技大学（广州）校徽{% else %}HKUST(GZ) emblem{% endif %}"
+        width="48"
+        height="48"
+        loading="lazy"
+      >
+    </div>
+    <div class="education-period">
+      {% if education_is_zh %}2025年至今{% else %}2025–Present{% endif %}
+    </div>
+    <div class="education-details">
+      <div class="education-school">
+        {% if education_is_zh %}香港科技大学（广州）{% else %}The Hong Kong University of Science and Technology (Guangzhou){% endif %}
+        <span class="education-abbr">HKUST(GZ)</span>
+      </div>
+      <div class="education-degree">
+        {% if education_is_zh %}数据科学与分析博士{% else %}Ph.D. in Data Science and Analytics{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="education-entry" role="listitem">
+    <div class="education-logo-wrap">
+      <img
+        class="education-logo"
+        src="{{ '/assets/img/education/pku.png' | relative_url }}"
+        alt="{% if education_is_zh %}北京大学校徽{% else %}Peking University emblem{% endif %}"
+        width="48"
+        height="48"
+        loading="lazy"
+      >
+    </div>
+    <div class="education-period">2021–2024</div>
+    <div class="education-details">
+      <div class="education-school">
+        {% if education_is_zh %}北京大学{% else %}Peking University{% endif %}
+        <span class="education-abbr">PKU</span>
+      </div>
+      <div class="education-degree">
+        {% if education_is_zh %}软件工程硕士{% else %}Master's Degree in Software Engineering{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="education-entry" role="listitem">
+    <div class="education-logo-wrap">
+      <img
+        class="education-logo education-logo-uestc"
+        src="{{ '/assets/img/education/uestc.png' | relative_url }}"
+        alt="{% if education_is_zh %}电子科技大学校徽{% else %}UESTC emblem{% endif %}"
+        width="48"
+        height="48"
+        loading="lazy"
+      >
+    </div>
+    <div class="education-period">2017–2021</div>
+    <div class="education-details">
+      <div class="education-school">
+        {% if education_is_zh %}电子科技大学{% else %}University of Electronic Science and Technology of China{% endif %}
+        <span class="education-abbr">UESTC</span>
+      </div>
+      <div class="education-degree">
+        {% if education_is_zh %}软件工程学士{% else %}Bachelor's Degree in Software Engineering{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .education-entry {
+    display: grid;
+    grid-template-columns: 58px minmax(140px, 180px) minmax(0, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.65rem 0;
+    background: transparent !important;
+  }
+
+  .education-entry:hover,
+  .education-entry:focus-within {
+    background: transparent !important;
+  }
+
+  .education-logo-wrap {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .education-logo {
+    display: block;
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+  }
+
+  .education-logo-uestc {
+    border-radius: 50%;
+  }
+
+  .education-period {
+    align-self: start;
+    padding-top: 0.15rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .education-school {
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .education-abbr {
+    margin-left: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    opacity: 0.68;
+    white-space: nowrap;
+  }
+
+  .education-degree {
+    margin-top: 0.12rem;
+    line-height: 1.45;
+    opacity: 0.82;
+  }
+
+  @media (max-width: 640px) {
+    .education-entry {
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 0.25rem 0.7rem;
+      padding: 0.75rem 0;
+    }
+
+    .education-logo-wrap {
+      grid-row: 1 / span 2;
+      width: 46px;
+      height: 46px;
+    }
+
+    .education-logo {
+      width: 42px;
+      height: 42px;
+    }
+
+    .education-period {
+      grid-column: 2;
+      padding-top: 0;
+      font-size: 0.92rem;
+    }
+
+    .education-details {
+      grid-column: 2;
+    }
+  }
+</style>

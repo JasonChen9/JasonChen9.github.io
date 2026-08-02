@@ -1,0 +1,38 @@
+{% assign visitor_lang = include.lang | default: page.lang | default: site.lang %}
+
+<div class="visitor-map">
+  <!-- prettier-ignore -->
+  <a href="https://info.flagcounter.com/sVD8"><img src="https://s01.flagcounter.com/map/sVD8/size_m/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
+  <p class="visitor-map-note">
+    {% if visitor_lang == 'zh-CN' %}
+      按国家和地区汇总的首页浏览量。统计组件不设置 Cookie。
+    {% else %}
+      Homepage views summarized by country and region. The counter does not set cookies.
+    {% endif %}
+  </p>
+</div>
+
+<style>
+  .visitor-map {
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .visitor-map img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .visitor-map > a {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 600 / 291;
+  }
+
+  .visitor-map-note {
+    margin-top: 0.45rem;
+    font-size: 0.82rem;
+    opacity: 0.68;
+  }
+</style>

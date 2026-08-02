@@ -1,0 +1,28 @@
+{% assign news_lang = include.lang | default: page.lang | default: site.lang %}
+{% assign news_items = site.news | reverse %}
+{% assign news_limit = include.limit | default: news_items.size %}
+
+<div class="news">
+  <div class="table-responsive">
+    <table class="table table-sm table-borderless">
+      {% for item in news_items limit: news_limit %}
+        <tr>
+          <th scope="row" style="width: 20%">
+            {% if news_lang == 'zh-CN' %}
+              {{ item.date | date: '%Y年%-m月' }}
+            {% else %}
+              {{ item.date | date: '%b %Y' }}
+            {% endif %}
+          </th>
+          <td>
+            {% if news_lang == 'zh-CN' and item.zh %}
+              {{ item.zh | markdownify | remove: '<p>' | remove: '</p>' | emojify }}
+            {% else %}
+              {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>

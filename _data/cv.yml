@@ -13,7 +13,7 @@ cv:
 
   sections:
     Education:
-      - institution: The Hong Kong University of Science and Technology (Guangzhou)
+      - institution: The Hong Kong University of Science and Technology (Guangzhou), HKUST(GZ)
         location: Guangzhou, China
         url: https://www.hkust-gz.edu.cn/
         area: Data Science and Analytics, Information Hub
@@ -24,7 +24,7 @@ cv:
           - "Advisor: Prof. Xiaowen Chu"
           - Machine Learning Systems; Distributed LLM Training and Serving; GPU Computing
 
-      - institution: Peking University
+      - institution: Peking University (PKU)
         location: Beijing, China
         url: https://english.pku.edu.cn/
         area: Software Engineering
@@ -35,7 +35,7 @@ cv:
           - School of Software and Microelectronics
           - High-Performance Computing, AI Compiler Optimization, and CUDA Programming
 
-      - institution: University of Electronic Science and Technology of China
+      - institution: University of Electronic Science and Technology of China (UESTC)
         location: Chengdu, China
         url: https://en.uestc.edu.cn/
         area: Software Engineering

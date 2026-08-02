@@ -3,9 +3,19 @@ layout: about
 title: about
 permalink: /
 subtitle: Ph.D. Student in Data Science and Analytics · HKUST(GZ)
+lang: en
+og_locale: en_US
+translation_key: about
+translation_url: /zh/
+description: Guangyu Xiang is a Ph.D. student working on machine learning systems, efficient LLM training and inference, and GPU computing.
 
 selected_papers: true
+selected_publications_label: selected publications
+publications_url: /publications/
+visitor_map: true
+visitor_map_label: homepage visitor map
 social: true
+contact_note: Email is the best way to reach me.
 
 announcements:
   enabled: false
@@ -33,33 +43,7 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
 
 ## Education
 
-<div class="table-responsive">
-  <table class="table table-sm table-borderless">
-    <tbody>
-      <tr>
-        <th scope="row" style="width: 20%">2025–Present</th>
-        <td>
-          <strong>The Hong Kong University of Science and Technology (Guangzhou)</strong><br>
-          Ph.D. in Data Science and Analytics
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2021–2024</th>
-        <td>
-          <strong>Peking University</strong><br>
-          Master's Degree in Software Engineering
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2017–2021</th>
-        <td>
-          <strong>University of Electronic Science and Technology of China</strong><br>
-          Bachelor's Degree in Software Engineering
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{% include education.liquid lang="en" %}
 
 ## Research interests
 
@@ -73,16 +57,4 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
   <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
 </h2>
 
-<div class="news">
-  <div class="table-responsive">
-    <table class="table table-sm table-borderless">
-      {% assign news = site.news | reverse %}
-      {% for item in news limit: 3 %}
-        <tr>
-          <th scope="row" style="width: 20%">{{ item.date | date: "%b %Y" }}</th>
-          <td>{{ item.content | remove: '<p>' | remove: '</p>' | emojify }}</td>
-        </tr>
-      {% endfor %}
-    </table>
-  </div>
-</div>
+{% include news-list.liquid lang="en" limit=3 %}
