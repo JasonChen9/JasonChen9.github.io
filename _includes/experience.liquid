@@ -37,13 +37,7 @@
         {% if experience_is_zh %}微软亚洲研究院{% else %}Microsoft Research Asia{% endif %}
         <span class="experience-abbr">MSRA</span>
       </div>
-      <div class="experience-summary">
-        {% if experience_is_zh %}
-          研究多头注意力与 FlashAttention 优化，开发 CUDA 内核，并探索编译器代价模型。
-        {% else %}
-          Studied Multi-Head Attention and FlashAttention optimization, developed CUDA kernels, and explored compiler cost models.
-        {% endif %}
-      </div>
+      <div class="experience-keywords">FlashAttention · CUDA · Compiler</div>
     </div>
   </div>
 
@@ -70,13 +64,7 @@
         {% if experience_is_zh %}AI 框架团队研发工程师实习生{% else %}R&amp;D Engineer Intern, AI Framework Team{% endif %}
       </div>
       <div class="experience-company">OneFlow</div>
-      <div class="experience-summary">
-        {% if experience_is_zh %}
-          使用 PDLL 重构 MLIR 算子融合与重写模式，并支持跨框架、跨加速器的模型兼容。
-        {% else %}
-          Reworked MLIR operator fusion and rewrite patterns with PDLL, and supported model compatibility across frameworks and accelerators.
-        {% endif %}
-      </div>
+      <div class="experience-keywords">MLIR · PDLL · Operator Fusion</div>
     </div>
   </div>
 
@@ -103,13 +91,7 @@
         {% if experience_is_zh %}AI 编译器工程师实习生{% else %}AI Compiler Engineer Intern{% endif %}
       </div>
       <div class="experience-company">AMD</div>
-      <div class="experience-summary">
-        {% if experience_is_zh %}
-          面向 ASR 模型编译开发 TVM Relay Pass，包括量化流程优化与 AIE 部署评估。
-        {% else %}
-          Built TVM Relay passes for ASR model compilation, including quantization-flow optimization and AIE deployment evaluation.
-        {% endif %}
-      </div>
+      <div class="experience-keywords">TVM Relay · Quantization · AIE</div>
     </div>
   </div>
 
@@ -139,13 +121,7 @@
         {% if experience_is_zh %}鹏城实验室{% else %}Peng Cheng Laboratory{% endif %}
         <span class="experience-abbr">PCL</span>
       </div>
-      <div class="experience-summary">
-        {% if experience_is_zh %}
-          参与高性能计算集群的资源管理与作业调度。
-        {% else %}
-          Contributed to resource management and job scheduling for high-performance computing clusters.
-        {% endif %}
-      </div>
+      <div class="experience-keywords">HPC · Resource Management · Job Scheduling</div>
     </div>
   </div>
 </div>
@@ -241,11 +217,13 @@
     white-space: nowrap;
   }
 
-  .experience-summary {
+  .experience-keywords {
     margin-top: 0.28rem;
-    font-style: italic;
+    font-size: 0.9rem;
+    font-weight: 500;
     line-height: 1.45;
-    opacity: 0.78;
+    letter-spacing: 0.01em;
+    opacity: 0.72;
     overflow-wrap: anywhere;
   }
 
