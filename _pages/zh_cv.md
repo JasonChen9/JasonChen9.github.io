@@ -53,7 +53,8 @@ GPA 3.86/4.00，专业排名前 5%
 
 ## 论文
 
-1. **Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration.** arXiv, 2026. [论文](https://arxiv.org/abs/2607.11136)
-2. **KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding.** arXiv, 2026. [论文](https://arxiv.org/abs/2606.29207)
-3. **Compass: Dissecting Communication and Computation Operators for Efficient LLM Training.** IEEE INFOCOM 2026. [论文](https://doi.org/10.1109/INFOCOM59046.2026.11571341)
-4. **ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training.** arXiv, 2025. [论文](https://arxiv.org/abs/2510.00606)
+1. **Zellige: Moldable Sequence Placement for Mixed Image-Video DiT Training.** arXiv, 2026. [论文](https://arxiv.org/abs/2608.01150)
+2. **Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration.** arXiv, 2026. [论文](https://arxiv.org/abs/2607.11136)
+3. **KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding.** arXiv, 2026. [论文](https://arxiv.org/abs/2606.29207)
+4. **Compass: Dissecting Communication and Computation Operators for Efficient LLM Training.** IEEE INFOCOM 2026. [论文](https://doi.org/10.1109/INFOCOM59046.2026.11571341)
+5. **ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training.** arXiv, 2025. [论文](https://arxiv.org/abs/2510.00606)

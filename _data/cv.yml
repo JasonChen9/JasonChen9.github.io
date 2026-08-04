@@ -84,6 +84,19 @@ cv:
           high-performance computing clusters.
 
     Publications:
+      - title: "Zellige: Moldable Sequence Placement for Mixed Image-Video DiT Training"
+        authors:
+          - Guangyu Xiang
+          - Xueze Kang
+          - Minwei Zhao
+          - Yuxin Wang
+          - Shaohuai Shi
+          - Lin Zhang
+          - Xiaowen Chu
+        publisher: arXiv
+        releaseDate: 2026-08-02
+        url: https://arxiv.org/abs/2608.01150
+
       - title: "Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration"
         authors:
           - Xueze Kang
