@@ -3,6 +3,10 @@ import path from "node:path";
 
 const sourceUrl = process.env.POSTHOG_SHARED_INSIGHT_URL;
 const outputPath = process.env.VISITOR_MAP_OUTPUT || "assets/data/visitor-map.json";
+const knownTestPageviews = new Map([
+  // Browser and deployment checks routed through a US proxy on 2026-08-02–04.
+  ["US", 130],
+]);
 
 if (!sourceUrl) {
   throw new Error("POSTHOG_SHARED_INSIGHT_URL is not configured");
@@ -66,6 +70,16 @@ for (const row of rows) {
   }
 
   mergedCounts.set(code, (mergedCounts.get(code) || 0) + count);
+}
+
+for (const [code, testCount] of knownTestPageviews) {
+  const correctedCount = Math.max(0, (mergedCounts.get(code) || 0) - testCount);
+
+  if (correctedCount > 0) {
+    mergedCounts.set(code, correctedCount);
+  } else {
+    mergedCounts.delete(code);
+  }
 }
 
 const countries = Object.fromEntries([...mergedCounts.entries()].sort(([left], [right]) => left.localeCompare(right)));
