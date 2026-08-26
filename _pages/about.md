@@ -35,7 +35,7 @@ Before joining HKUST(GZ), I received my master's degree in Software Engineering 
 
   </div>
   <div class="col-md-4 mb-4">
-    {% include figure.liquid loading="eager" path="assets/img/guangyu-xiang.jpg" class="img-fluid rounded z-depth-1" alt="Portrait of Guangyu Xiang" %}
+    {% include figure.liquid loading="eager" path="assets/img/guangyu-xiang-outdoor.jpg" class="img-fluid rounded z-depth-1 profile-showcase-photo" alt="Guangyu Xiang in a mountain landscape" %}
     <div class="mt-2 font-monospace">
       <p class="mb-0" lang="zh-CN">向广宇</p>
       <p class="mb-0 small" style="overflow-wrap: anywhere">
