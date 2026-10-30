@@ -1,0 +1,169 @@
+{
+  "xiang2026zellige": {
+    "paper_id": "2608.01150",
+    "title_zh": "Zellige：面向图像与视频混合 DiT 训练的可塑序列放置",
+    "background": {
+      "zh": "多 GPU 图像与视频混合 DiT 训练包含长度差异很大的序列，需要同时满足计算与显存约束。",
+      "en": "Mixed image-video DiT training must distribute widely varying sequence lengths across GPUs under compute and memory constraints."
+    },
+    "challenge": {
+      "zh": "固定且互不重叠的 DP/CP 分组难以兼顾组间负载均衡与短序列通信开销。",
+      "en": "Fixed disjoint DP/CP groups trade inter-group load balance against unnecessary communication for short sequences."
+    },
+    "method": {
+      "zh": "联合选择各序列的并行配置与参与 GPU，以重序列规划、轻序列填充和合并注意力执行支持重叠放置。",
+      "en": "A two-stage planner selects parallel configurations and ranks per sequence, while coalesced attention executes whole sequences beside distributed shards."
+    },
+    "result": {
+      "zh": "作者报告相对 KnapFormer 在 16 张 A800 上加速 1.12–1.48 倍，在 32 张 A6000 上加速 1.27–1.54 倍。",
+      "en": "The authors report 1.12–1.48× speedups over KnapFormer on 16 A800s and 1.27–1.54× on 32 A6000s."
+    },
+    "evidence_urls": [
+      "https://arxiv.org/abs/2608.01150",
+      "https://arxiv.org/html/2608.01150v1"
+    ],
+    "abstract": {
+      "en": "High-quality video generation requires training Diffusion Transformers (DiTs) jointly on image and video data, posing a mixed-length sequence training problem across GPUs. Existing systems rely on data parallelism (DP), context parallelism (CP), or their combination; we model these designs as disjoint-group placement and prove that they face a fundamental tradeoff between inter-group load imbalance and intra-group communication redundancy. We present Zellige, a moldable sequence placement system that jointly selects each sequence's parallelism configuration and participating ranks. Zellige consists of three components: a hardware profiler that estimates the execution time and memory consumption of candidate placements, a two-stage planner that balances compute-heavy anchor sequences and packs lighter filler sequences into the remaining capacity, and a coalesced attention engine that efficiently executes whole sequences alongside distributed-attention shards. Across 21 plans, the hardware profile predicts step makespan and peak allocated memory with mean absolute percentage errors of 3.4% and 1.5%, respectively. The two-stage planner solves each batch in 33–119 ms, significantly faster than a joint-placement reference that optimizes all sequences together, while their modeled makespans differ by at most 0.32%. In end-to-end evaluations, Zellige outperforms KnapFormer by 1.12–1.48× on 16 A800 GPUs and 1.27–1.54× on 32 A6000 GPUs.",
+      "zh": "高质量视频生成需要在图像和视频数据上联合训练扩散 Transformer（DiT），这带来了跨 GPU 的混合长度序列训练问题。现有系统依赖数据并行（DP）、上下文并行（CP）或二者的组合；我们将这些设计建模为互不相交的分组放置，并证明它们面临组间负载不均衡与组内冗余通信之间的根本权衡。我们提出 Zellige，一种可塑序列放置系统，联合选择每个序列的并行配置和参与执行的 rank。Zellige 由三个组件组成：估计候选放置方案执行时间和显存消耗的硬件分析器；平衡计算密集型锚点序列、并将较轻的填充序列打包到剩余容量中的两阶段规划器；以及使完整序列能够与分布式注意力分片一起高效执行的合并注意力引擎。在 21 个方案上，硬件分析模型对训练步完成时间和峰值已分配显存的预测平均绝对百分比误差分别为 3.4% 和 1.5%。两阶段规划器每个批次的求解时间为 33–119 毫秒，显著快于同时优化所有序列的联合放置参考方案，而二者建模得到的完成时间差异最多为 0.32%。在端到端评测中，Zellige 相对 KnapFormer 在 16 张 A800 GPU 上的性能达到 1.12–1.48 倍，在 32 张 A6000 GPU 上达到 1.27–1.54 倍。",
+      "source": "arXiv abstract page",
+      "source_url": "https://arxiv.org/abs/2608.01150",
+      "en_kind": "source-abstract",
+      "zh_kind": "translation",
+      "translation": "AI translation",
+      "normalization": "Whitespace and inline TeX quantities normalized for display; source wording retained."
+    }
+  },
+  "kang2026xema": {
+    "paper_id": "2607.11136",
+    "title_zh": "Xema：以细粒度内存管理和自动配置提升扩散服务",
+    "background": {
+      "zh": "高分辨率图像和长视频服务经常受到显存约束，而常规卸载、切片或分片会引入明显开销。",
+      "en": "High resolution image and long-video serving often hits memory limits, while conventional offloading, slicing, or sharding can impose substantial performance overhead."
+    },
+    "challenge": {
+      "zh": "显存峰值通常只出现在短区间，需要准确描述张量生命周期并联合决定并行、并发与内存措施。",
+      "en": "Memory pressure may concentrate in short intervals, requiring reliable tensor-lifetime analysis and joint decisions over parallelism, concurrency, and memory controls."
+    },
+    "method": {
+      "zh": "离线追踪请求模板的显存轨迹，构造静态内存布局并仅在压力区间缓解，再生成在线可用计划表。",
+      "en": "Xema traces request templates offline, builds static memory layouts, applies targeted pressure mitigation, and stores jointly optimized serving configurations for online use."
+    },
+    "result": {
+      "zh": "作者报告 SLO 达成率最高提升 3.7 倍，相比网格搜索将计划生成时间从 6.3 小时降至 197 秒。",
+      "en": "The authors report up to 3.7-fold better SLO attainment and reduce planning from 6.3 hours to 197 seconds versus grid search."
+    },
+    "evidence_urls": [
+      "https://arxiv.org/abs/2607.11136"
+    ],
+    "abstract": {
+      "en": "Diffusion models are increasingly deployed as production visual-generation services, where serving high-resolution image and long video generation is often limited by GPU memory. Popular memory-saving techniques such as weight offloading, sharding, and VAE slicing are often not practical because they tend to introduce significant performance overhead. In this paper, we present Xema, a memory-efficient diffusion serving system that exploits predictable tensor lifetimes for trace-guided memory optimization. For each request template, Xema derives an offline memory trace to identify short memory-pressure intervals and applies memory mitigation only within these intervals and only by the amount needed to fit the target GPU budget. Xema further constructs a static memory layout for tensors with predictable lifetimes, reducing fragmentation-induced reserved memory and making offline memory reasoning reliable at runtime. Built on this memory optimization layer, Xema introduces an offline planner that jointly selects parallelism, concurrency, and memory control under GPU memory and SLO constraints. The selected plan is stored in a plan table and directly used by the online serving runtime. We implement Xema on production diffusion pipelines and evaluate it with Flux.2, CogVideoX-5B, and LTX-2. Compared with existing serving configurations, Xema improves SLO attainment by up to 3.7x and reduces planning cost from 6.3 hours to 197 seconds compared with grid search.",
+      "zh": "扩散模型正日益被部署为生产级视觉生成服务，而高分辨率图像和长视频生成的服务能力往往受限于 GPU 内存。权重卸载、分片和 VAE 切片等常见内存节省技术通常并不实用，因为它们往往会引入显著的性能开销。本文提出 Xema，一种内存高效的扩散模型服务系统，利用可预测的张量生命周期进行轨迹引导的内存优化。对于每种请求模板，Xema 推导离线内存轨迹，以识别短暂的内存压力区间，并且仅在这些区间内、仅按满足目标 GPU 内存预算所需的程度采取内存缓解措施。Xema 还为生命周期可预测的张量构建静态内存布局，从而减少碎片导致的预留内存，并使离线内存推理在运行时保持可靠。在这一内存优化层之上，Xema 引入离线规划器，在 GPU 内存和 SLO 约束下联合选择并行度、并发度与内存控制方案。选定的方案存入计划表，供在线服务运行时直接使用。我们在生产级扩散流水线上实现 Xema，并使用 Flux.2、CogVideoX-5B 和 LTX-2 进行评估。与现有服务配置相比，Xema 将 SLO 达成率最高提升 3.7 倍，并相较网格搜索将规划成本从 6.3 小时降至 197 秒。",
+      "source": "arXiv",
+      "source_url": "https://arxiv.org/abs/2607.11136",
+      "en_kind": "source-abstract",
+      "zh_kind": "translation",
+      "translation": "AI translation",
+      "normalization": "Whitespace and inline TeX quantities normalized for display; source wording retained."
+    }
+  },
+  "xiang2026kernelflume": {
+    "paper_id": "2606.29207",
+    "title_zh": "KernelFlume：面向智能体长上下文解码的弹性核心注意力扩展",
+    "background": {
+      "en": "Agents, reasoning models, and long conversations create dynamic decode workloads whose KV-cache demand grows with context length.",
+      "zh": "智能体、推理模型和长对话产生动态解码负载，KV 缓存需求随上下文长度增长。"
+    },
+    "challenge": {
+      "en": "Scaling complete serving instances duplicates model weights and introduces startup delays, memory overhead, and fragmented batches.",
+      "zh": "扩容完整服务实例需要复制模型权重，带来启动延迟、额外显存占用和批次碎片化。"
+    },
+    "method": {
+      "en": "KernelFlume separates projection/FFN computation from weightless attention nodes, using token-range KV routing and kernel pipelining to scale attention capacity independently.",
+      "zh": "KernelFlume 将投影与 FFN 计算同不持有模型权重的注意力节点分离，通过按 token 区间路由 KV 和内核流水线独立扩展注意力容量。"
+    },
+    "result": {
+      "en": "For Llama-3.1-8B agentic serving, real A6000/H100 tests maintain p99 time per output token near 74/34 ms and cut token cost by up to 32%/61% versus ServerlessLLM instance scaling.",
+      "zh": "在 Llama-3.1-8B 智能体服务中，真实 A6000/H100 测试将 p99 单 token 延迟维持在约 74/34 毫秒，较 ServerlessLLM 整实例扩缩容最高降低 token 成本 32%/61%。"
+    },
+    "evidence_urls": [
+      "https://arxiv.org/abs/2606.29207"
+    ],
+    "abstract": {
+      "en": "LLM serving is increasingly dominated by long and dynamic decode workloads from agents, reasoning models, and extended conversations. When bursty long-context demand exceeds deployed capacity, existing serving systems typically scale out by launching additional serving instances with model replicas. This instance-level elasticity increases KV capacity only by provisioning another full copy of the model, inheriting startup latency, memory overhead, and batch fragmentation. We present KernelFlume, a decode-centric architecture that disaggregates the stable projection/FFN path from core-attention computation: weight nodes execute dense projection/FFN kernels, while weightless attention nodes store token-range KV partitions and scale with request-state demand. To make this separation elastic, KernelFlume maintains a routing table that maps token ranges to attention-node endpoints. It updates routes at token boundaries and uses host-visible graph signals to drive pre-registered UCX endpoint communication outside the captured CUDA Graph. To preserve low per-token latency after disaggregation, KernelFlume combines query-first core-attention dispatch with inter-layer kernel pipelining, overlapping remote attention and communication with local projection/FFN work. On real GPU testbeds (intra-node A6000 and cross-node H100), under a dynamic long-context agentic workload serving Llama-3.1-8B, KernelFlume sustains flat p99 TPOTs of ~74 ms on A6000 and ~34 ms on H100, while lowering cost per million output tokens by up to 32% and 61%, respectively, relative to full-instance elastic scaling with ServerlessLLM, a state-of-the-art instance-startup method. Replaying the same trace at larger model scale in simulation projects a 56–66% cost reduction over ServerlessLLM, widening to 80–85% with cheaper heterogeneous attention-node hardware and persisting into the million-token context range.",
+      "zh": "大语言模型服务正日益由智能体、推理模型和长对话带来的长时、动态解码负载主导。当突发的长上下文需求超过已部署容量时，现有服务系统通常通过启动持有模型副本的额外服务实例来扩容。这种实例级弹性只能通过再配置一份完整模型来增加 KV 容量，因而伴随启动延迟、内存开销和批次碎片化。我们提出 KernelFlume，一种以解码为中心的架构，将稳定的投影与前馈网络（FFN）路径同核心注意力计算分离：权重节点执行稠密投影和 FFN 内核，不持有模型权重的注意力节点则存储按 token 区间划分的 KV 分区，并随请求状态需求扩展。为使这种分离支持弹性，KernelFlume 维护一张将 token 区间映射到注意力节点端点的路由表。它在 token 边界更新路由，并通过主机可见的图执行信号，在已捕获的 CUDA Graph 之外驱动预注册 UCX 端点通信。为在分离后保持较低的单 token 延迟，KernelFlume 将查询优先的核心注意力分发与跨层内核流水线结合，使远端注意力计算及通信与本地投影和 FFN 计算重叠。在真实 GPU 测试平台（节点内 A6000 和跨节点 H100）上，对 Llama-3.1-8B 提供动态长上下文智能体服务时，KernelFlume 将 p99 单输出 token 延迟稳定维持在 A6000 上约 74 毫秒、H100 上约 34 毫秒；相较使用先进实例启动方法 ServerlessLLM 的整实例弹性扩缩容，每百万输出 token 成本分别最高降低 32% 和 61%。在更大模型规模的仿真中重放同一轨迹，预计相对 ServerlessLLM 可降低成本 56–66%；使用更便宜的异构注意力节点硬件后，降幅扩大至 80–85%，并在百万 token 上下文范围内仍保持收益。",
+      "source": "arXiv",
+      "source_url": "https://arxiv.org/abs/2606.29207",
+      "en_kind": "source-abstract",
+      "zh_kind": "translation",
+      "translation": "AI translation",
+      "normalization": "Whitespace and inline TeX quantities normalized for display; source wording retained."
+    }
+  },
+  "xiang2026compass": {
+    "paper_id": "2609.10549",
+    "title_zh": "Compass：剖析通信与计算算子以提升大语言模型训练效率",
+    "background": {
+      "en": "Distributed LLM training overlaps communication with computation to hide data-transfer overhead on GPU clusters.",
+      "zh": "分布式大语言模型训练通过重叠通信与计算，隐藏 GPU 集群中的数据传输开销。"
+    },
+    "challenge": {
+      "en": "Operator fusion can underuse hybrid network topologies, while tensor decomposition requires choosing a workload-dependent partition count.",
+      "zh": "算子融合可能无法充分利用混合互连拓扑，而张量拆分又需要针对负载选择合适的分块数。"
+    },
+    "method": {
+      "en": "Compass combines topology-aware double-ring fusion, an analytical decomposition model, and a unified performance model to select the overlap strategy.",
+      "zh": "Compass 结合感知拓扑的双环融合算法、张量拆分解析模型和统一性能模型，选择通信计算重叠策略。"
+    },
+    "result": {
+      "en": "Across 288 configurations and end-to-end application tests, Compass reports up to 1.42× training speedup over Megatron-LM.",
+      "zh": "作者在 288 种配置和端到端应用测试中验证 Compass，相较 Megatron-LM 报告最高 1.42 倍训练加速。"
+    },
+    "evidence_urls": [
+      "https://arxiv.org/abs/2609.10549",
+      "https://doi.org/10.1109/INFOCOM59046.2026.11571341"
+    ],
+    "abstract": {
+      "en": "Overlapping communication and computation operators is a common practice to hide communication overheads, accelerating large language models (LLMs) training on GPU clusters. Existing systems achieve this through either intra-operator fusion (IntraFusion), which packs operators into a single large kernel, or inter-operator decomposition (InterDecom), which splits a tensor into multiple parts for pipelined execution. However, current IntraFusion methods underutilize network topology, causing suboptimal bandwidth usage on multi-GPU systems, while InterDecom struggles to determine the optimal number of decomposed parts for peak performance. To address these issues, we introduce Compass, which employs systematic optimization and comprehensive modeling. First, we design a novel IntraFusion algorithm leveraging double-ring communications to maximize bandwidth utilization in hybrid NVLink-PCIe systems, achieving 1.5x-2.5x speedups. Second, we develop a decomposition model that mathematically derives the optimal tensor decomposition degree for InterDecom, improving performance by up to 1.3x. Finally, we develop a unified performance framework that accurately determines the best strategy for different scenarios. We validate Compass through extensive evaluation across 288 configurations and end-to-end experiments on real-world applications. The results demonstrate that Compass consistently selects the optimal strategy, achieving up to a 1.42x end-to-end speedup compared to the Megatron-LM baseline.",
+      "zh": "重叠通信与计算算子是隐藏通信开销、加速 GPU 集群上大语言模型训练的常见做法。现有系统通过两种方式实现重叠：算子内融合（IntraFusion）将算子封装进一个大内核，算子间拆分（InterDecom）则将张量分成多个部分进行流水执行。然而，当前 IntraFusion 方法未能充分利用网络拓扑，导致多 GPU 系统中的带宽使用不理想；InterDecom 则难以确定达到最佳性能所需的拆分份数。为解决这些问题，我们提出采用系统化优化和全面建模的 Compass。首先，我们设计了一种利用双环通信的新型 IntraFusion 算法，以最大化混合 NVLink–PCIe 系统的带宽利用率，取得 1.5–2.5 倍加速。其次，我们建立拆分模型，从数学上推导 InterDecom 的最优张量拆分度，使性能最高提升至 1.3 倍。最后，我们构建统一性能框架，准确确定不同场景下的最佳策略。我们通过涵盖 288 种配置的广泛评测和真实应用的端到端实验验证 Compass。结果表明，Compass 能够持续选择最优策略，相较 Megatron-LM 基线取得最高 1.42 倍端到端加速。",
+      "source": "arXiv",
+      "source_url": "https://arxiv.org/abs/2609.10549",
+      "en_kind": "source-abstract",
+      "zh_kind": "translation",
+      "translation": "AI translation",
+      "normalization": "Whitespace and inline TeX quantities normalized for display; source wording retained."
+    }
+  },
+  "kang2025elaswave": {
+    "paper_id": "2510.00606",
+    "title_zh": "ElasWave：面向可扩展混合并行训练的原生弹性系统",
+    "background": {
+      "en": "Large-scale LLM pretraining must keep progressing as accelerator failures and resource changes alter the available training cluster.",
+      "zh": "大规模大语言模型预训练需要在加速器故障和资源变化持续改变集群规模时继续运行。"
+    },
+    "challenge": {
+      "en": "Elastic recovery must preserve parameter and computation consistency while restoring quickly and maintaining high throughput after reconfiguration.",
+      "zh": "弹性恢复需要同时保持参数与计算一致性、缩短恢复时间，并维持重配置后的高吞吐。"
+    },
+    "method": {
+      "en": "ElasWave jointly reschedules graphs, dataflow, DVFS, and RNG, with online pipeline resharding, asynchronous parameter migration, and in-place communicator updates.",
+      "zh": "ElasWave 联合调度计算图、数据流、动态电压频率和随机数状态，通过在线流水线重分片、异步参数迁移和原地通信组更新实现弹性。"
+    },
+    "result": {
+      "en": "On 96 NPUs, ElasWave delivers 1.35×/1.60× throughput over ReCycle/TorchFT, with sub-second communicator recovery and up to 51% lower migration recovery time.",
+      "zh": "在 96 张 NPU 上，ElasWave 吞吐达到 ReCycle/TorchFT 的 1.35/1.60 倍，通信组恢复不到一秒，迁移平均恢复时间最高降低 51%。"
+    },
+    "evidence_urls": [
+      "https://arxiv.org/abs/2510.00606v3"
+    ],
+    "abstract": {
+      "en": "Large-scale LLM pretraining now runs across 10⁵–10⁶ accelerators, making failures routine and elasticity mandatory. We posit that an elastic-native training system must jointly deliver (i) parameter consistency, (ii) low mean time to recovery (MTTR), (iii) high post-change throughput, and (iv) computation consistency. No prior system achieves all four simultaneously. To achieve these goals, we present ElasWave, which delivers per-step fault tolerance via multi-dimensional scheduling across graph, dataflow, DVFS, and RNG. ElasWave reshapes and reshards micro-batches while preserving the global batch size and gradient scale. It performs online pipeline resharding with asynchronous parameter migration and interleaves ZeRO partitions, reducing parameter recovery processes to disjoint rank-to-rank transfers. It further leverages DVFS to absorb pipeline bubbles and reshards RNG to keep computation consistency. Together, a dynamic communicator enables in-place communication group edits, while per-step in-memory snapshots support online verification and redistribution. We evaluate ElasWave on 96 NPUs and benchmark it against state-of-the-art baselines: throughput improves by 1.35× over ReCycle and 1.60× over TorchFT; communicator recovery completes within one second (up to 82×/3.6× faster than full/partial rebuilds); migration MTTR drops by as much as 51%; and convergence deviation is reduced by approximately 78%.",
+      "zh": "大规模大语言模型预训练如今运行在 10⁵–10⁶ 个加速器上，故障已成常态，弹性也成为必需。我们认为，原生支持弹性的训练系统必须同时实现：（i）参数一致性；（ii）较低的平均恢复时间（MTTR）；（iii）资源变化后的高吞吐；（iv）计算一致性。此前没有系统能够同时实现这四项目标。为此，我们提出 ElasWave，通过对计算图、数据流、动态电压频率调节（DVFS）和随机数生成（RNG）进行多维调度，实现逐训练步容错。ElasWave 在保持全局批大小和梯度尺度不变的情况下，对微批次进行重整形和重分片。它结合异步参数迁移执行在线流水线重分片，并交错安排 ZeRO 分区，将参数恢复过程化简为互不重叠的 rank 间传输。它还利用 DVFS 吸收流水线空泡，并对随机数状态重新分片以保持计算一致性。与此同时，动态通信器支持原地修改通信组，逐步内存快照则支持在线验证和重新分配。我们在 96 张 NPU 上评估 ElasWave，并与先进基线比较：吞吐分别达到 ReCycle 的 1.35 倍和 TorchFT 的 1.60 倍；通信器恢复在一秒内完成，相比完整重建和部分重建分别最高快 82 倍和 3.6 倍；迁移平均恢复时间最高降低 51%；收敛偏差约降低 78%。",
+      "source": "arXiv",
+      "source_url": "https://arxiv.org/abs/2510.00606v3",
+      "en_kind": "source-abstract",
+      "zh_kind": "translation",
+      "translation": "AI translation",
+      "normalization": "Whitespace and inline TeX quantities normalized for display; source wording retained."
+    }
+  }
+}

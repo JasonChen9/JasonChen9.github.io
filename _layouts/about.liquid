@@ -69,7 +69,7 @@ layout: default
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
-      <h2>
+      <h2 id="selected-publications">
         <a href="{{ page.publications_url | default: '/publications/' | relative_url }}" style="color: inherit">
           {{- page.selected_publications_label | default: 'selected publications' -}}
         </a>

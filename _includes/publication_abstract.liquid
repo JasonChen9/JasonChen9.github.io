@@ -1,0 +1,12 @@
+{% assign abstract_language = 'en' %}
+{% if page.lang == 'zh-CN' %}{% assign abstract_language = 'zh' %}{% endif %}
+<details class="publication-abstract" id="publication-abstract-{{ include.key }}">
+  <summary>{% if abstract_language == 'zh' %}摘要 · Abs{% else %}Abs{% endif %}</summary>
+  <div class="publication-abstract-body" lang="{% if abstract_language == 'zh' %}zh-CN{% else %}en{% endif %}">
+    <p class="publication-abstract-provenance">
+      {% if abstract_language == 'zh' %}完整摘要 · AI 中文翻译{% else %}Full abstract · Original English{% endif %}
+      · <a href="{{ include.paper.abstract.source_url | escape }}" target="_blank" rel="noopener noreferrer">{% if abstract_language == 'zh' %}原文来源{% else %}Source{% endif %} ↗</a>
+    </p>
+    <p class="publication-abstract-text">{{ include.paper.abstract[abstract_language] | escape | newline_to_br }}</p>
+  </div>
+</details>

@@ -1,0 +1,16 @@
+{% assign publication_language = 'en' %}
+{% if page.lang == 'zh-CN' %}{% assign publication_language = 'zh' %}{% endif %}
+{% assign publication_fields = 'background,challenge,method,result' | split: ',' %}
+{% if publication_language == 'zh' %}
+  {% assign publication_labels = '背景,挑战,方法,结果' | split: ',' %}
+{% else %}
+  {% assign publication_labels = 'Background,Challenge,Method,Results' | split: ',' %}
+{% endif %}
+<dl class="publication-summary" lang="{% if publication_language == 'zh' %}zh-CN{% else %}en{% endif %}">
+  {% for field in publication_fields %}
+    <div class="publication-summary-row">
+      <dt>{{ publication_labels[forloop.index0] }}</dt>
+      <dd>{{ include.paper[field][publication_language] | escape }}</dd>
+    </div>
+  {% endfor %}
+</dl>

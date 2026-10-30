@@ -1,0 +1,123 @@
+/* Match the paper atlas's quiet metadata, aligned explanations and single toolbar. */
+#selected-publications { scroll-margin-top: 5rem; }
+.publications ol.bibliography > li { margin-bottom: 0; }
+.publications .publication-entry {
+  margin: 0;
+  padding: 26px 0 28px;
+  border-bottom: 1px solid var(--global-divider-color);
+}
+.publications ol.bibliography > li:first-child .publication-entry { padding-top: 4px; }
+.publications .publication-card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0;
+  --publication-muted: color-mix(in srgb, var(--global-text-color) 66%, var(--global-bg-color));
+}
+.publications ol.bibliography .publication-card .title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  text-wrap: pretty;
+}
+.publications .publication-card .author,
+.publications .publication-card .periodical {
+  font-size: 0.81rem;
+  line-height: 1.6;
+  color: var(--publication-muted);
+}
+.publications .publication-card .periodical em { font-style: normal; }
+.publications .publication-summary {
+  margin: 16px 0 17px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.publications .publication-summary-row {
+  display: grid;
+  grid-template-columns: 5.6rem minmax(0, 1fr);
+  column-gap: 12px;
+  margin: 5px 0;
+}
+.publications .publication-summary[lang="zh-CN"] .publication-summary-row {
+  grid-template-columns: 2em minmax(0, 1fr);
+}
+.publications .publication-summary dt {
+  margin: 0;
+  color: var(--publication-muted);
+  font-weight: 500;
+  font-size: 0.84rem;
+  padding-top: 0.08rem;
+}
+.publications .publication-summary dd { margin: 0; overflow-wrap: anywhere; }
+.publications .publication-card .links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+.publications ol.bibliography .publication-card .links a.btn,
+.publications .publication-abstract-toggle,
+.publications .publication-abstract > summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 30px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 4px 10px;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 3px;
+  background: transparent;
+  color: var(--global-theme-color);
+  font-family: inherit;
+  font-size: 0.76rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+}
+.publications ol.bibliography .publication-card .links a.btn:hover,
+.publications .publication-abstract-toggle:hover,
+.publications .publication-abstract-toggle[aria-expanded="true"] {
+  background: var(--global-theme-color);
+  color: var(--global-bg-color);
+}
+.publications .publication-abstract-toggle:focus-visible,
+.publications .publication-abstract > summary:focus-visible {
+  outline: 2px solid var(--global-theme-color);
+  outline-offset: 3px;
+}
+.publications .publication-toggle-icon { width: 0.65rem; font-size: 1rem; line-height: 1; }
+.publications .publication-abstract { margin: 12px 0 0; }
+.publications .publication-abstract[data-enhanced]:not([open]),
+.publications .publication-abstract-toggle[hidden],
+.publications .publication-abstract > summary[hidden] { display: none; }
+.publications .publication-abstract-body {
+  padding: 14px 17px;
+  border-left: 2px solid var(--global-theme-color);
+  background: color-mix(in srgb, var(--global-theme-color) 5%, var(--global-bg-color));
+  overflow-wrap: anywhere;
+}
+.publications .publication-abstract:not([data-enhanced]) .publication-abstract-body { margin-top: 12px; }
+.publications .publication-abstract-provenance {
+  font-size: 0.76rem;
+  color: var(--publication-muted);
+  margin: 0 0 9px;
+}
+.publications .publication-abstract-text {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  margin: 0;
+  text-align: left;
+}
+@media (max-width: 575px) {
+  .publications .publication-entry { padding: 22px 0; }
+  .publications ol.bibliography .publication-card .title { font-size: 1.06rem; }
+  .publications .publication-summary-row { grid-template-columns: 5.2rem minmax(0, 1fr); column-gap: 10px; }
+  .publications .publication-summary,
+  .publications .publication-abstract-text { font-size: 0.88rem; }
+  .publications .publication-summary dt { font-size: 0.8rem; }
+  .publications .publication-abstract-body { padding: 12px; }
+}
