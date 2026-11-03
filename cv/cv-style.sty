@@ -18,6 +18,7 @@
   \xeCJKsetup{CJKecglue={\hskip 0.08em}}
 \fi
 \RequirePackage{xcolor}
+\RequirePackage{graphicx}
 \RequirePackage{tabularx}
 \RequirePackage{needspace}
 \RequirePackage{fancyhdr}
@@ -52,6 +53,8 @@
 \setlength{\footskip}{8mm}
 
 \newcommand{\cvheader}[3]{%
+  \begin{minipage}[t]{\dimexpr\linewidth-30mm\relax}
+  \vspace{0pt}
   {\fontsize{25}{29}\selectfont\bfseries #1}\par
   \vspace{4pt}
   {\fontsize{10.5}{14}\selectfont #2}\par
@@ -61,6 +64,12 @@
     \quad | \quad \href{https://jasonchen9.github.io/}{jasonchen9.github.io}}\par
   \vspace{5pt}
   {\fontsize{9.5}{12.5}\selectfont\color{cvmuted}#3}\par
+  \end{minipage}\hfill
+  \begin{minipage}[t]{22mm}
+    \vspace{0pt}
+    \raggedleft
+    \includegraphics[width=22mm,height=27mm,keepaspectratio]{assets/photo.jpg}
+  \end{minipage}\par
   \vspace{4pt}
 }
 

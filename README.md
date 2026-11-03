@@ -22,6 +22,9 @@ Edit `cv/cv-en.tex` and `cv/cv-zh.tex` together; both use `cv/cv-style.sty` for 
 `_bibliography/papers.bib`, so publication changes must also be reflected in both TeX sources. `_data/cv.yml` continues to supply the homepage's education
 and experience sections; it does not generate the PDF CVs.
 
+Both CVs use `cv/assets/photo.jpg` in the upper-right corner of the first page. Replace this file to update the portrait; the shared style preserves its
+aspect ratio within a 22 mm by 27 mm box.
+
 With XeLaTeX or Tectonic installed, regenerate both PDFs from the repository root:
 
 ```sh
