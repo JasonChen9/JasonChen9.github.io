@@ -1,0 +1,112 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[chinese]{cv-style}
+
+\begin{document}
+
+\cvheader
+  {向广宇}
+  {数据科学与分析博士生 · 香港科技大学（广州）}
+  {高效、弹性的大语言模型与多模态模型训练和推理 · GPU 计算}
+
+\cvsection{教育经历}
+
+\cventry
+  {香港科技大学（广州）}
+  {2025年02月 - 至今}
+  {数据科学与分析博士，信息枢纽 · 中国广州}
+  {导师：褚晓文教授。研究方向：机器学习系统、分布式训练与推理、GPU 计算，以及通信与计算协同优化。}
+
+\cventry
+  {北京大学}
+  {2021年09月 - 2024年06月}
+  {软件工程硕士 · 中国北京}
+  {软件与微电子学院。研究方向：高性能计算、AI 编译器优化与 CUDA 编程。}
+
+\cventry
+  {电子科技大学}
+  {2017年09月 - 2021年06月}
+  {软件工程学士 · 中国成都}
+  {信息与软件工程学院。GPA 3.86/4.00，综合排名前 5\%；获国家励志奖学金、优秀学生奖学金。}
+
+\cvsection{论文}
+\cvnote{* 表示共同第一作者。}
+
+\cvpublication
+  {ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training}
+  {Xueze Kang\textsuperscript{*}, \textbf{Guangyu Xiang}\textsuperscript{*}, Yuxin Wang, Hao Zhang, Yuchu Fang, Yuhang Zhou, Zhenheng Tang, Youhui Lv, Eliran Maman, Mark Wasserman, Alon Zameret, Zhipeng Bian, Shushu Chen, Zhiyou Yu, Jin Wang, Xiaoyu Wu, Yang Zheng, Chen Tian, and Xiaowen Chu}
+  {IEEE HPCA 2027 · 已录用}
+  {https://arxiv.org/abs/2510.00606}
+
+\cvpublication
+  {Zellige: Moldable Sequence Placement for Mixed Image-Video DiT Training}
+  {\textbf{Guangyu Xiang}\textsuperscript{*}, Xueze Kang\textsuperscript{*}, Minwei Zhao, Yuxin Wang, Shaohuai Shi, Lin Zhang, and Xiaowen Chu}
+  {arXiv 预印本 · 2026}
+  {https://arxiv.org/abs/2608.01150}
+
+\cvpublication
+  {Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration}
+  {Xueze Kang\textsuperscript{*}, \textbf{Guangyu Xiang}\textsuperscript{*}, Suyi Li, Yuxin Wang, Shaohuai Shi, Lin Zhang, and Xiaowen Chu}
+  {arXiv 预印本 · 2026}
+  {https://arxiv.org/abs/2607.11136}
+
+\cvpublication
+  {KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding}
+  {\textbf{Guangyu Xiang}\textsuperscript{*}, Xueze Kang\textsuperscript{*}, Lin Zhang, Wenxiang Lin, Shaohuai Shi, Yuxin Wang, and Xiaowen Chu}
+  {arXiv 预印本 · 2026}
+  {https://arxiv.org/abs/2606.29207}
+
+\cvpublication
+  {Compass: Dissecting Communication and Computation Operators for Efficient LLM Training}
+  {\textbf{Guangyu Xiang}, Lin Zhang, Haoxuan Yu, Xinglin Pan, Shaohuai Shi, and Xiaowen Chu}
+  {IEEE INFOCOM 2026}
+  {https://doi.org/10.1109/INFOCOM59046.2026.11571341}
+
+\newpage
+
+\cvsection{科研与工程经历}
+
+\cventry
+  {微软亚洲研究院（MSRA）}
+  {2023年02月 - 2023年12月}
+  {科研实习生，系统研究组 · 中国北京}
+  {分析 FlashAttention 的计算与访存模式、GPU 执行流程及 CUDA/CUTLASS 实现；使用 CUDA 开发算子内核，研究通过循环变换提升数据局部性，并探索编译优化代价模型。}
+
+\cventry
+  {OneFlow}
+  {2022年09月 - 2023年02月}
+  {研发工程师实习生，AI 框架团队 · 中国北京}
+  {将 MLIR 算子融合模式从 TableGen DRR 迁移至 PDLL；构建跨框架模型迁移与验证流程，覆盖 ResNet-50 和 GPT-2，并在寒武纪 MLU 上验证执行与结果一致性。}
+
+\cventry
+  {AMD}
+  {2022年03月 - 2022年09月}
+  {AI 编译工程师实习生 · 中国北京}
+  {面向 AMD AI Engine 上的 ASR 模型部署开发 TVM Relay Pass，以原生量化算子替换量化与反量化算子链；参与硬件测试、部署问题定位、精度验证与性能评估。}
+
+\cventry
+  {鹏城实验室（PCL）}
+  {2020年11月 - 2021年08月}
+  {AI 开发工程师实习生 · 中国深圳}
+  {参与高性能计算集群的资源管理与作业调度。}
+
+\cvsection{项目经历}
+
+\cvproject
+  {面向通信与计算融合的集合通信技术}
+  {基于 GPU 点对点带宽测量构建拓扑感知性能模型；设计 All-Gather+GEMM、GEMM+Reduce-Scatter 融合算子及流水机制，参与 pybind11 绑定层开发及 Megatron 集成，支持测试、自动调优与端到端性能验证。}
+
+\cvproject
+  {人工智能算子标准与自动化测试}
+  {调研主流 AI 框架算子接口，参与人工智能算子标准制定；实现 AITISA 部分算子的参考实现，并搭建自动化测试框架。}
+
+\cvsection{专业技能}
+\cvskill{编程语言}{Python、C/C++}
+\cvskill{GPU 与编译器}{CUDA/CUTLASS、MLIR/PDLL、TVM Relay}
+\cvskill{训练系统与工具}{Megatron-LM、Docker}
+
+\cvsection{竞赛荣誉}
+\cvhonor{美国大学生数学建模竞赛一等奖}
+\cvhonor{全国大学生信息安全竞赛一等奖}
+\cvhonor{中国高校计算机大赛 - 网络技术挑战赛西南赛区一等奖}
+
+\end{document}

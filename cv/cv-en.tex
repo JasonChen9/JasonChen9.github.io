@@ -1,0 +1,112 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{cv-style}
+
+\begin{document}
+
+\cvheader
+  {Guangyu Xiang}
+  {Ph.D. Student in Data Science and Analytics · HKUST(GZ)}
+  {Efficient and elastic LLM / multimodal training and inference · GPU computing}
+
+\cvsection{Education}
+
+\cventry
+  {The Hong Kong University of Science and Technology (Guangzhou)}
+  {Feb. 2025 - Present}
+  {Ph.D. in Data Science and Analytics, Information Hub · Guangzhou, China}
+  {Advisor: Prof. Xiaowen Chu. Research interests: machine learning systems, distributed training and inference, GPU computing, and communication-computation co-optimization.}
+
+\cventry
+  {Peking University}
+  {Sep. 2021 - Jun. 2024}
+  {Master's Degree in Software Engineering · Beijing, China}
+  {School of Software and Microelectronics. Research focus: high-performance computing, AI compiler optimization, and CUDA programming.}
+
+\cventry
+  {University of Electronic Science and Technology of China}
+  {Sep. 2017 - Jun. 2021}
+  {Bachelor's Degree in Software Engineering · Chengdu, China}
+  {School of Information and Software Engineering. GPA: 3.86/4.00; ranked in the top 5\%. National Encouragement Scholarship; Outstanding Student Scholarship.}
+
+\cvsection{Publications}
+\cvnote{* Equal contribution.}
+
+\cvpublication
+  {ElasWave: An Elastic-Native System for Scalable Hybrid-Parallel Training}
+  {Xueze Kang\textsuperscript{*}, \textbf{Guangyu Xiang}\textsuperscript{*}, Yuxin Wang, Hao Zhang, Yuchu Fang, Yuhang Zhou, Zhenheng Tang, Youhui Lv, Eliran Maman, Mark Wasserman, Alon Zameret, Zhipeng Bian, Shushu Chen, Zhiyou Yu, Jin Wang, Xiaoyu Wu, Yang Zheng, Chen Tian, and Xiaowen Chu}
+  {IEEE HPCA 2027 · Accepted}
+  {https://arxiv.org/abs/2510.00606}
+
+\cvpublication
+  {Zellige: Moldable Sequence Placement for Mixed Image-Video DiT Training}
+  {\textbf{Guangyu Xiang}\textsuperscript{*}, Xueze Kang\textsuperscript{*}, Minwei Zhao, Yuxin Wang, Shaohuai Shi, Lin Zhang, and Xiaowen Chu}
+  {arXiv preprint · 2026}
+  {https://arxiv.org/abs/2608.01150}
+
+\cvpublication
+  {Xema: Efficient Diffusion Serving through Fine-Grained Memory Management and Auto-Configuration}
+  {Xueze Kang\textsuperscript{*}, \textbf{Guangyu Xiang}\textsuperscript{*}, Suyi Li, Yuxin Wang, Shaohuai Shi, Lin Zhang, and Xiaowen Chu}
+  {arXiv preprint · 2026}
+  {https://arxiv.org/abs/2607.11136}
+
+\cvpublication
+  {KernelFlume: Elastic Core-Attention Scaling for Agentic Long-Context Decoding}
+  {\textbf{Guangyu Xiang}\textsuperscript{*}, Xueze Kang\textsuperscript{*}, Lin Zhang, Wenxiang Lin, Shaohuai Shi, Yuxin Wang, and Xiaowen Chu}
+  {arXiv preprint · 2026}
+  {https://arxiv.org/abs/2606.29207}
+
+\cvpublication
+  {Compass: Dissecting Communication and Computation Operators for Efficient LLM Training}
+  {\textbf{Guangyu Xiang}, Lin Zhang, Haoxuan Yu, Xinglin Pan, Shaohuai Shi, and Xiaowen Chu}
+  {IEEE INFOCOM 2026}
+  {https://doi.org/10.1109/INFOCOM59046.2026.11571341}
+
+\newpage
+
+\cvsection{Research and Engineering Experience}
+
+\cventry
+  {Microsoft Research Asia (MSRA)}
+  {Feb. 2023 - Dec. 2023}
+  {Research Intern, Systems Research Group · Beijing, China}
+  {Analyzed FlashAttention computation, memory access, GPU execution, and CUDA/CUTLASS implementations. Developed CUDA kernels and explored loop transformations for data locality and compiler cost models.}
+
+\cventry
+  {OneFlow}
+  {Sep. 2022 - Feb. 2023}
+  {R\&D Engineer Intern, AI Framework Team · Beijing, China}
+  {Migrated MLIR operator-fusion patterns from TableGen DRR to PDLL. Developed cross-framework model migration and validation workflows for ResNet-50 and GPT-2, including execution and result-consistency checks on Cambricon MLU.}
+
+\cventry
+  {AMD}
+  {Mar. 2022 - Sep. 2022}
+  {AI Compiler Engineer Intern · Beijing, China}
+  {Developed TVM Relay passes for ASR deployment on AMD AI Engine, replacing quantize/dequantize chains with native quantized operators. Participated in hardware testing, deployment debugging, accuracy validation, and performance evaluation.}
+
+\cventry
+  {Peng Cheng Laboratory}
+  {Nov. 2020 - Aug. 2021}
+  {AI Development Engineer Intern · Shenzhen, China}
+  {Contributed to resource management and job scheduling for high-performance computing clusters.}
+
+\cvsection{Projects}
+
+\cvproject
+  {Communication-Computation Fusion for Collective Operations}
+  {Built topology-aware performance models from GPU peer-to-peer bandwidth measurements. Designed fused All-Gather+GEMM and GEMM+Reduce-Scatter operators and pipelining mechanisms; contributed pybind11 bindings and Megatron integration for testing, autotuning, and end-to-end performance evaluation.}
+
+\cvproject
+  {AI Operator Standards and Automated Testing}
+  {Surveyed operator interfaces in mainstream AI frameworks and contributed to AI operator standards. Implemented reference operators in AITISA and developed an automated test framework.}
+
+\cvsection{Technical Skills}
+\cvskill{Programming}{Python, C/C++}
+\cvskill{GPU \& compilers}{CUDA/CUTLASS, MLIR/PDLL, TVM Relay}
+\cvskill{ML systems \& tooling}{Megatron-LM, Docker}
+
+\cvsection{Honors}
+\cvhonor{Meritorious Winner, Mathematical Contest in Modeling (MCM)}
+\cvhonor{First Prize, National College Student Information Security Competition}
+\cvhonor{First Prize, Southwest Region, China Collegiate Computing Contest - Network Technology Challenge}
+
+\end{document}

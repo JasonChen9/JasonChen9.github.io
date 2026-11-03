@@ -110,7 +110,9 @@
                   </div>
                 </li>
               {% else %}
-                {% if p.permalink contains '://' %}
+                {% if p.redirect_to %}
+                  {% assign page_url = p.redirect_to %}
+                {% elsif p.permalink contains '://' %}
                   {% assign page_url = p.permalink %}
                 {% elsif p.permalink contains '/blog/' %}
                   {% assign page_url = '/blog/' %}

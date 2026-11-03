@@ -1,0 +1,20 @@
+{%- assign pdf_url = page.redirect_to | relative_url -%}
+<!doctype html>
+<html lang="{{ page.lang | default: site.lang | escape }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }}</title>
+    <meta http-equiv="refresh" content="0; url={{ pdf_url | escape }}">
+    <link rel="canonical" href="{{ page.redirect_to | absolute_url | escape }}">
+  </head>
+  <body>
+    <p>
+      {% if page.lang == 'zh-CN' %}
+        正在打开 PDF 简历。若未自动跳转，请<a href="{{ pdf_url | escape }}">点击这里查看简历</a>。
+      {% else %}
+        Opening the PDF CV. If it does not open automatically, <a href="{{ pdf_url | escape }}">view the CV here</a>.
+      {% endif %}
+    </p>
+  </body>
+</html>
