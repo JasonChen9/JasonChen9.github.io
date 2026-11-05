@@ -362,8 +362,9 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
-  group_order: descending
+  # Preserve the curated order in papers.bib on home and publication pages.
+  sort_by: none
+  group_by: none
 
 # Display different badges withs stats for your publications
 # Customize badge behavior in _layouts/bib.liquid

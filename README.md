@@ -48,6 +48,8 @@ settings; `_layouts/pdf-redirect.liquid` provides the redirects without JavaScri
 
 The English and Chinese homepages and publication pages share the same paper content. Each paper shows one sentence each for background, challenge, method, and results. The `Abstract` / `摘要` button sits beside the source and citation links and opens the full English abstract or its explicitly labeled AI Chinese translation, with a link to the source. Native `Abs` disclosures remain available without JavaScript. Citation metadata and BibTeX remain in `papers.bib`.
 
+Publication lists preserve the entry order in `_bibliography/papers.bib`, without year grouping. Keep this order aligned with `_data/cv.yml` and both CV TeX sources.
+
 On desktop, hovering over the abstract button previews the abstract; moving into the text keeps it open, and leaving both areas closes the preview after a short delay. Clicking pins it open; clicking again or pressing Escape closes it. Touch and keyboard users can use the same button.
 
 `_layouts/bib.liquid` overrides the bibliography template from the pinned `al_folio_core` 1.0.12 theme; review that override when upgrading the theme.

@@ -12,6 +12,27 @@
 
 <div class="experience-list" role="list">
   <div class="experience-entry" role="listitem">
+    <div class="experience-logo-wrap" aria-hidden="true">
+      <span class="experience-logo-wordmark">WXG</span>
+    </div>
+    <div class="experience-meta">
+      <div class="experience-period experience-period-current">
+        <time datetime="2026-11">{% if experience_is_zh %}2026年11月{% else %}Nov. 2026{% endif %}</time>
+        <span>- {% if experience_is_zh %}至今{% else %}Present{% endif %}</span>
+      </div>
+    </div>
+    <div class="experience-details">
+      <div class="experience-role">
+        {% if experience_is_zh %}青云计划实习生{% else %}Qingyun Program Intern{% endif %}
+      </div>
+      <div class="experience-company">
+        {% if experience_is_zh %}腾讯微信事业群{% else %}Tencent Weixin Group{% endif %}
+        <span class="experience-abbr">WXG</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="experience-entry" role="listitem">
     <div class="experience-logo-wrap experience-logo-wrap-msra" aria-hidden="true">
       <img
         class="experience-logo"
@@ -177,6 +198,12 @@
     object-fit: contain;
   }
 
+  .experience-logo-wordmark {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
   .experience-meta,
   .experience-details {
     min-width: 0;
@@ -185,6 +212,15 @@
   .experience-period {
     padding-top: 0.12rem;
     font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .experience-period-current {
+    white-space: normal;
+  }
+
+  .experience-period-current time,
+  .experience-period-current span {
     white-space: nowrap;
   }
 
